@@ -1,0 +1,169 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 24/03/2025, 18:54:59
+    Author     : us
+*/
+
+
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f3f2ef;
+            }
+
+            header, footer {
+                background-color: #283e4a;
+                color: white;
+                padding: 10px 0;
+            }
+
+            header a, footer a {
+                color: white;
+                text-decoration: none;
+            }
+
+            header a:hover, footer a:hover {
+                text-decoration: underline;
+            }
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+            }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 10px;
+            }
+
+            nav ul li {
+                margin: 0;
+            }
+
+            nav ul li a {
+                color: #0073b1;
+                text-decoration: none;
+                padding: 10px;
+            }
+
+            nav ul li a:hover {
+                background-color: #e1e9ee;
+                border-radius: 5px;
+            }
+
+            .main {
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+            }
+
+            .core-rail {
+                width: 60%;
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .right-rail {
+                width: 30%;
+                margin-left: 20px;
+            }
+
+            .article-translation_button {
+                background-color: #0073b1;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .article-translation_button:hover {
+                background-color: #005582;
+            }
+
+            .content-hub-entity-card-redesign {
+                display: flex;
+                background-color: white;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+            }
+
+            .content-hub-entity-card-redesign img {
+                border-radius: 5px;
+            }
+
+            .content-hub-entity-card-redesign h2 {
+                font-size: 18px;
+                margin: 0;
+            }
+
+            .content-hub-entity-card-redesign p {
+                font-size: 14px;
+                color: #666;
+            }
+
+            .content-hub-tagged-topics a {
+                color: #0073b1;
+                text-decoration: none;
+            }
+
+            .content-hub-tagged-topics a:hover {
+                text-decoration: underline;
+            }
+
+            .pill {
+                background-color: #0073b1;
+                color: white;
+                padding: 10px;
+                border-radius: 20px;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .pill:hover {
+                background-color: #005582;
+            }
+
+            .btn {
+                background-color: #0073b1;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .btn:hover {
+                background-color: #005582;
+            }
+
+            .btn-secondary {
+                background-color: #e1e9ee;
+                color: #0073b1;
+            }
+
+            .btn-secondary:hover {
+                background-color: #cfd8dc;
+            }
+
+            .btn-tertiary {
+                background-color: transparent;
+                color: #0073b1;
+            }
+
+            .btn-tertiary:hover {
+                background-color: #e1e9ee;
+            }
+        
