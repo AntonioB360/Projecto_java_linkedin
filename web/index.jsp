@@ -259,7 +259,7 @@
 
 
                     <a class="nav__button-tertiary btn-md btn-tertiary"
-                       href="https://www.linkedin.com/signup/cold-join?session_redirect=%2Fpulse%2Ftopics%2Fhome%2F%3Ftrk%3Dorganization_guest_guest_nav_menu_articles%26lang%3Dpt&amp;trk=content-hub-home-page_nav-header-join"
+                       href="Cadastro.jsp"
                        data-tracking-control-name="content-hub-home-page_nav-header-join" data-test-live-nav-primary-cta
                        data-tracking-will-navigate>
                         Cadastre-se agora

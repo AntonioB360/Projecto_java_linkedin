@@ -17,38 +17,81 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 
 form{
-    margin-bottom: 23px;
+   
    background: var(--corcorpo);
-   margin: 0 auto 0 auto;
+   margin: 40px auto 0 auto;
    width: 350px;
    height: 500px;
-   box-shadow: 2px 2px 2px 2px #999999;
+   border-radius: 5px;
+   box-shadow: 3px 3px 3px 3px #999999;
    border: none;
    
 }
+h1{
+    padding-top: 12px;
+}
 
+.google>a,.apple>a{
+    color: black;
+    font-size: 20px;
+}
+
+.google:hover>a,.apple:hover>a{
+  color: #0A66C2;
+  text-decoration: underline;
+}
+a{
+   text-decoration: none;
+   color: #0A66C2;
+}
+
+a:hover{
+    text-decoration: underline;
+}
 .m{
     margin-bottom: 50px;
 }
 
 .google,.apple{
-    padding: 15px 0 15px 0;
+    padding: 1px 0 15px 0;
    text-align: center;
     border-radius: 30px;
-    border-style:double ;
+    border-style: solid ;
+    border-color: #000000;
+}
+
+.linha-ou{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.linha-ou hr{
+    flex-grow: 1;
+    border: none;
+    height: 1px;
+    background-color: black;
+    margin: 10px;
+}
+
+.linha-ou span{
+    padding: 0 10px;
+    font-weight: bold;
 }
 
 input[type="text"],input[type="password"]{
     
     display: block;
     padding: 10px 0 10px 0;
-    margin-bottom: 13px;
-    width: 90%;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 input[type="submit"]{
     background: #0A66C2;
-   margin-top: 40px;
+    margin: 4px 15px 5px 15px;
     display: block;
     width: 90%;
      padding: 15px 0 15px 0;
@@ -71,7 +114,7 @@ input[type="submit"]{
 
 footer{
     display: inline-flex;
-    margin-top: 20px;
+    margin-top: 30px;
     list-style: none;
 }
 li{
@@ -80,4 +123,8 @@ li{
 
 select{
     margin-left: 5px;
+}
+
+p{
+    margin-top: 20px;
 }
