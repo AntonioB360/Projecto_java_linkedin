@@ -34,7 +34,7 @@
                 </div>
 -->
                
-
+  
                 <input type="text" id="id" placeholder="E-mail ou telefone">
 
                 <input type="password" id="id" minlength="8" placeholder="Senha">
@@ -47,7 +47,7 @@
             </div>
         </form>
 
-        <p class="te">Ainda faz parte do Linkedin <a href="#">cadastre-se agora</a></p>
+        <p class="te">Ainda faz parte do Linkedin <a href="Cadastro.jsp">cadastre-se agora</a></p>
 
         <footer>
             &COPY;2025 <li>contrato de usuario</li>

@@ -1,0 +1,150 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 25/03/2025, 09:14:03
+    Author     : us
+*/
+
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 22 de mar. de 2025, 14:18:45
+    Author     : Direitor
+*/
+
+:root{
+    --corcorpo:(#ffffff);
+    --corbotao:(#0A66C2);
+}
+
+
+
+
+
+form{
+   
+   background: var(--corcorpo);
+   margin: 30px auto 0 auto;
+   width: 400px;
+   height: 560px;
+   border-radius: 5px;
+   box-shadow: 3px 3px 3px 3px #999999;
+   border: none;
+   
+}
+h1{
+    padding-top: 12px;
+    text-align: center;
+}
+
+.google>a,.apple>a{
+    color: black;
+    font-size: 20px;
+}
+
+.google:hover>a{
+  color: #0A66C2;
+  text-decoration: underline;
+}
+a{
+   text-decoration: none;
+   color: #0A66C2;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+.m{
+    margin-bottom: 50px;
+}
+
+.google{
+    padding: 1px 0 15px 0;
+   text-align: center;
+    border-radius: 30px;
+    border-style: solid ;
+    border-color: #000000;
+}
+
+.linha-ou{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.linha-ou hr{
+    flex-grow: 1;
+    border: none;
+    height: 1px;
+    background-color: black;
+    margin: 10px;
+}
+
+.linha-ou span{
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+input[type="email"],input[type="password"]{
+    
+    display: block;
+    padding: 10px 0 10px 0;
+    margin-top: 2px;
+    width: 100%;
+}
+label{
+      margin-bottom: 10px;
+}
+
+.esp{
+    padding-top: 20px;
+}
+input[type="submit"]{
+    background: #0A66C2;
+    margin: 50px 15px 50px 15px;
+    display: block;
+    width: 90%;
+     padding: 15px 0 15px 0;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.global{
+    padding-left: 20px;
+    padding-right:20px;
+    
+   
+    
+}
+
+.te{
+    text-align: center;
+}
+
+footer{
+    display: inline-flex;
+    margin-top: 30px;
+    list-style: none;
+}
+li{
+    padding-left: 20px;
+}
+
+select{
+    margin-left: 5px;
+}
+
+p{
+    margin-top: 20px;
+}
+
+.hidden{
+    display: none;
+}
