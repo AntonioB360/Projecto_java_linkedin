@@ -16,7 +16,7 @@
     <body>
 
         <img src="imagens/icons/linkedin_2.png" style="height: 40px" alt="alt"/>
-        <form action="action">
+        <form action="Login" method="post">
             <div class="global">
                 <h1>Entrar</h1>
                 <div class="m">
@@ -35,11 +35,11 @@
 -->
                
   
-                <input type="text" id="id" placeholder="E-mail ou telefone">
+<input type="text" id="id" name="email" placeholder="E-mail ou telefone">
 
-                <input type="password" id="id" minlength="8" placeholder="Senha">
+                <input type="password" id="id" minlength="8"  name="senha"  placeholder="Senha">
                 <a href="#">Esqueceu a senha?</a>
-                <p><input type="checkbox" id="id" name="name" value="r"> Me mantenha na conta</p>
+                <p><input type="checkbox" id="id"value="r"> Me mantenha na conta</p>
 
 
                 <input type="submit" value="Entrar">
