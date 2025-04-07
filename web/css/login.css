@@ -19,7 +19,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 form{
    
    background: var(--corcorpo);
-   margin: 40px auto 0 auto;
+   margin: 45px auto 0 auto;
    width: 350px;
    height: 500px;
    border-radius: 5px;
@@ -91,7 +91,7 @@ input[type="text"],input[type="password"]{
 
 input[type="submit"]{
     background: #0A66C2;
-    margin: 4px 15px 5px 15px;
+    margin: 4px 15px 19px 15px;
     display: block;
     width: 90%;
      padding: 15px 0 15px 0;

@@ -1,4 +1,9 @@
-function proximaEtapa(etapaAtual, proximaEtapa) {
-    document.getElementById(etapaAtual).classList.add('hidden');
-    document.getElementById(proximaEtapa).classList.remove('hidden');
-}
+document.getElementById("menuButton").addEventListener("click", function() {
+    document.getElementById("sidebar").classList.add("open");
+    document.querySelector("main").classList.add("open");
+});
+
+document.getElementById("closeButton").addEventListener("click", function() {
+    document.getElementById("sidebar").classList.remove("open");
+    document.querySelector("main").classList.remove("open");
+});

@@ -118,10 +118,10 @@
 
 
 
-                    <span class="sr-only">LinkedIn</span>
+                    <span class="sr-only"><img src="imagens/IMG-20250331-WA0017.jpg" style="width:150px;height:100px" alt="alt"/></span>
                     <!---->
                     <icon class="block text-color-brand w-[102px] h-[26px] " data-test-id="nav-logo"
-                          data-delayed-url="https://static.licdn.com/aero-v1/sc/h/8fkga714vy9b2wk5auqo5reeb"></icon>
+                         
 
 
                 </a>

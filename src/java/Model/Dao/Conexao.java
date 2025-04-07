@@ -4,6 +4,8 @@
  */
 package Model.Dao;
 
+import Controler.Postagem;
+import Model.Postagens;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -18,10 +20,11 @@ public class Conexao {
    private static final String url="jdbc:mysql://localhost:3306/socialmidia";
    private static final  String user="root";
    private static final  String senha="";
-   
+  
    public static Connection getCom(){
        
        try {
+           
             System.out.println("Conexao bem sucedida");
            return DriverManager.getConnection(url, user, senha);
           

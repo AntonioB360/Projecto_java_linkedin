@@ -4,7 +4,8 @@
  */
 package Controler;
 
-import Model.Dao.Usuario;
+import Model.Criptografia;
+import Model.Usuario;
 import Model.Dao.UsuarioDao;
 import java.io.File;
 import java.io.IOException;
@@ -77,35 +78,48 @@ private static final String UPLOAD_DIR = "uploads";
         
         String nome=request.getParameter("nome");
         String email=request.getParameter("email");
-        String senha=request.getParameter("senha");
+       String senha= request.getParameter("senha");
         String cargo=request.getParameter("cargo");
         String empresa=request.getParameter("empresa");
         String localizacao=request.getParameter("localizacao");
         String resumo=request.getParameter("resumo");
-        
-        Part filePart=request.getPart("foto");
-        String  fileName =filePart.getSubmittedFileName();
-        
-        
-        String uploadPath=getServletContext().getRealPath("")+File.separator + UPLOAD_DIR;
-        
-        File uploadDIR =new File(uploadPath);
-        if(!uploadDIR.exists()){
-            uploadDIR.mkdir();
-        }
-        String fileExtension=fileName.substring(fileName.lastIndexOf("."));
-        String uniqueFileName=UUID.randomUUID().toString()+ fileExtension;
-        String filePath=uploadPath+ File.separator+uniqueFileName;
-        filePart.write(filePath);
-        String relativePath=UPLOAD_DIR+"/"+ uniqueFileName;
-        
+                    Part filePart = request.getPart("foto");
+            String relativePath = null;
+
+            
+ 
+              
+              
+            
+            
+if (filePart != null && filePart.getSize() > 0 && filePart.getSubmittedFileName() != null && !filePart.getSubmittedFileName().isEmpty()) {
+    String fileName = filePart.getSubmittedFileName();
+    String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIR;
+
+    File uploadDir = new File(uploadPath);
+    if (!uploadDir.exists()) {
+        uploadDir.mkdir();
+    }
+
+    String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+    String uniqueFileName = UUID.randomUUID().toString() + fileExtension;
+    String filePath = uploadPath + File.separator + uniqueFileName;
+
+    filePart.write(filePath);
+    relativePath = UPLOAD_DIR + "/" + uniqueFileName;
+} else {
+    // Não foi enviada uma foto. Podemos definir um caminho padrão ou deixar como null
+    relativePath = "uploads/default.png"; // se quiser um avatar padrão
+}
         UsuarioDao user =new UsuarioDao();
         Usuario us=new Usuario(0,nome, email, senha, cargo, empresa, localizacao, resumo,relativePath );
         
         user.cadastrar_usuario(us);
         response.sendRedirect("login.jsp");
     } catch (SQLException ex) {
+        response.sendRedirect("Erro.jsp");
         Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        
     }
     }
 

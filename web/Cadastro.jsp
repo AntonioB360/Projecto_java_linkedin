@@ -1,4 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+                  <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +9,7 @@
        
     </head>
     <body>
-        <img src="imagens/icons/linkedin_2.png" style="height: 40px" alt="LinkedIn Logo">
+        <img src="imagens/IMG-20250331-WA0017.jpg" style="height: 40px" alt="LinkedIn Logo">
 
         <h1>Aproveite sua vida profissional ao máximo</h1>
         <form action="Cadastro" method="post" enctype="multipart/form-data">

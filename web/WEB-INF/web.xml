@@ -8,6 +8,30 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>Controler.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginF</servlet-name>
+        <servlet-class>Controler.LoginF</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Controler.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Postagem</servlet-name>
+        <servlet-class>Controler.Postagem</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FeedServlet</servlet-name>
+        <servlet-class>Controler.FeedServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastroEmpresa</servlet-name>
+        <servlet-class>Controler.CadastroEmpresa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Vaga</servlet-name>
+        <servlet-class>Controler.Vaga</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Cadastro</servlet-name>
         <url-pattern>/Controler/Cadastro</url-pattern>
@@ -15,6 +39,30 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Controler/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginF</servlet-name>
+        <url-pattern>/Controler/LoginF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Controler/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Postagem</servlet-name>
+        <url-pattern>/Controler/Postagem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FeedServlet</servlet-name>
+        <url-pattern>/FeedServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroEmpresa</servlet-name>
+        <url-pattern>/Controler/CadastroEmpresa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Vaga</servlet-name>
+        <url-pattern>/Vaga</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

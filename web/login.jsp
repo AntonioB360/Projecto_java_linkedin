@@ -4,7 +4,14 @@
     Author     : Direitor
 --%>
 
+<%@page import="Model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="javax.servlet.http.HttpSession" %>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,8 +22,8 @@
     </head>
     <body>
 
-        <img src="imagens/icons/linkedin_2.png" style="height: 40px" alt="alt"/>
-        <form action="Login" method="post">
+        <img src="imagens/IMG-20250331-WA0017.jpg" style="height: 40px" alt="alt"/>
+        <form action="LoginF" method="post">
             <div class="global">
                 <h1>Entrar</h1>
                 <div class="m">
@@ -24,7 +31,7 @@
 
                     <div class="apple" style="margin-top: 14px"> <img src="imagens/icons/apple.jpg" alt="alt"/> <a href="#">Entrar com a apple</a> </div>
                 </div>
-                
+ 
                 <!-- <div class="linha-ou">
                     <hr>
                     <span>
@@ -38,6 +45,12 @@
 <input type="text" id="id" name="email" placeholder="E-mail ou telefone">
 
                 <input type="password" id="id" minlength="8"  name="senha"  placeholder="Senha">
+                <select id="id" name="tipo">
+                    <option value="usuario">usuario</option>
+                    <option value="empresa">empresa</option>
+                  
+                </select><br>
+
                 <a href="#">Esqueceu a senha?</a>
                 <p><input type="checkbox" id="id"value="r"> Me mantenha na conta</p>
 
@@ -46,8 +59,9 @@
 
             </div>
         </form>
-
+            
         <p class="te">Ainda faz parte do Linkedin <a href="Cadastro.jsp">cadastre-se agora</a></p>
+        <p class="te"><a href="CadastroEmpresa.jsp">Cadastrar-se como empresa</a></p>
 
         <footer>
             &COPY;2025 <li>contrato de usuario</li>
