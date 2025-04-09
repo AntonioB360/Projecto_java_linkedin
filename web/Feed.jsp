@@ -5,12 +5,13 @@
 --%>
 
 
+<%@page import="Model.Dao.PostagemDao"%>
 <%@page import="Model.Postagens"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Model.Usuario"%>
 <%@ page import="javax.servlet.http.HttpSession" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <%
     HttpSession sessao = request.getSession(false);
@@ -19,6 +20,10 @@
         response.sendRedirect("login.jsp");
         return;
     }
+    
+ PostagemDao post=new PostagemDao();
+    List<Postagens> lista=post.listagem_postagens();
+
   
 %>
 
@@ -169,13 +174,13 @@
             </div>
                    
        <div class="post">
-            <c:forEach var="p" items="${postagens}">
+             <% for(Postagens pos: lista){ %>
                 <div class="post-author">
-                    <img src="${p.usuario.Foto_perfil}">
+                    <img src="">
                     <div>
-                        <h1>${p.usuario.nome}</h1>
-                        <small>${p.conteudo}</small>
-                        <small>Postado em:${p.usuario.datapostagem} </small>
+                        <h1></h1>
+                        <small></small>
+                        <small></small>
                     </div>
                 </div>
                 <p>
@@ -383,7 +388,7 @@
                     </div>
                 </div>
             </div>
-               </c:forEach>    
+               <%}%>    
         </div>
                        
         <div class="right-sidebar">

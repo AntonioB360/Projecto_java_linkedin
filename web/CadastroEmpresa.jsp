@@ -75,6 +75,7 @@
                            accept="image/png, image/jpeg" 
                            aria-label="Selecione o arquivo do logotipo">
                     <div class="upload-preview" id="logoPreview"></div>
+                    <input type="hidden" id="id" name="accao" value="cadastrar">
                 </div>
             </div>
 

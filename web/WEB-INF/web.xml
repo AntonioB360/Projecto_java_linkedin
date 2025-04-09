@@ -32,6 +32,18 @@
         <servlet-name>Vaga</servlet-name>
         <servlet-class>Controler.Vaga</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserServelet</servlet-name>
+        <servlet-class>Controler.UserServelet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Deletar</servlet-name>
+        <servlet-class>Controler.Deletar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Pesquisar</servlet-name>
+        <servlet-class>Controler.Pesquisar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Cadastro</servlet-name>
         <url-pattern>/Controler/Cadastro</url-pattern>
@@ -64,6 +76,15 @@
         <servlet-name>Vaga</servlet-name>
         <url-pattern>/Vaga</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserServelet</servlet-name>
+        <url-pattern>/UserServelet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Deletar</servlet-name>
+        <url-pattern>/Controler/Deletar</url-pattern>
+    </servlet-mapping>
+   
     <session-config>
         <session-timeout>
             30

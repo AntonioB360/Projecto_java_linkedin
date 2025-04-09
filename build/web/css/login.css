@@ -6,125 +6,178 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : 22 de mar. de 2025, 14:18:45
     Author     : Direitor
 */
+/* Geral */
 
-:root{
-    --corcorpo:(#ffffff);
-    --corbotao:(#0A66C2);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Roboto:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'poppins', Helvetica;
+    color: #323232;
+    border: none;
 }
 
+body {
 
+    background: url(../img/rede.jfif)center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-
-
-form{
-   
-   background: var(--corcorpo);
-   margin: 45px auto 0 auto;
-   width: 350px;
-   height: 500px;
-   border-radius: 5px;
-   box-shadow: 3px 3px 3px 3px #999999;
-   border: none;
-   
-}
-h1{
-    padding-top: 12px;
 }
 
-.google>a,.apple>a{
-    color: black;
-    font-size: 20px;
+textarea:focus, input:focus {   /* Revove margem ao seleciona uma caixa input */
+    outline: none;
 }
 
-.google:hover>a,.apple:hover>a{
-  color: #0A66C2;
-  text-decoration: underline;
-}
-a{
-   text-decoration: none;
-   color: #0A66C2;
+a, label {
+    font-size: .8rem; /* 16 * .8 = X */
 }
 
-a:hover{
-    text-decoration: underline;
-}
-.m{
-    margin-bottom: 50px;
+a:hover {       /* Cor dos links ao passar o mause */
+    color: #08558b;
 }
 
-.google,.apple{
-    padding: 1px 0 15px 0;
-   text-align: center;
-    border-radius: 30px;
-    border-style: solid ;
-    border-color: #000000;
-}
-
-.linha-ou{
-    
+/* Logo */
+#logo {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+/* container login */
+
+#container {    /*criado div para o card de login */
+    display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 10vh;   /*define margem superior baseado na tela */
 }
 
-.linha-ou hr{
-    flex-grow: 1;
-    border: none;
-    height: 1px;
-    background-color: black;
-    margin: 10px;
+#login-container {
+    background-color: #ffffffc2;
+    width: 350px;
+    height: 528px;
+    border-radius: 12px;    /* Suavisa os cantos do card */
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 3px 3px 1px 0px #00000050;   /* Cria uma sobra no card */
 }
 
-.linha-ou span{
-    padding: 0 10px;
+/* formulario */
+
+form {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+label, input {
+    display: flex;
+    width: 100%;
+    text-align: left;
+}
+
+label {
     font-weight: bold;
 }
 
-input[type="text"],input[type="password"]{
-    
-    display: block;
-    padding: 10px 0 10px 0;
+input,select {
+    background-color: #ffffff20;    /* Cor de fundo do iput e opacidade */
+    border-radius: 5px;
+    border-bottom: 2px solid #323232;
+    padding: 10px;
+    font-size: .9rem;
     margin-bottom: 20px;
-    width: 100%;
 }
 
-input[type="submit"]{
-    background: #0A66C2;
-    margin: 4px 15px 19px 15px;
-    display: block;
-    width: 90%;
-     padding: 15px 0 15px 0;
-    border-radius: 30px;
+input:focus {
+    border-bottom: 2px solid #08558b;
+}
+
+#forgot-pass {
+    text-align: right;
+    display: block;   
+}
+
+/* Botao de login */
+
+input[type="submit"] {
+    display:flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
     border: none;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #000000, #051f91);
     cursor: pointer;
-}
-
-.global{
-    padding-left: 20px;
-    padding-right:20px;
-    
-   
-    
-}
-
-.te{
     text-align: center;
 }
 
-footer{
-    display: inline-flex;
-    margin-top: 30px;
-    list-style: none;
-}
-li{
-    padding-left: 20px;
+input[type="submit"]:hover {
+    background: linear-gradient(-135deg, #000000, #323ff0);
+    transition: .5s;
 }
 
-select{
-    margin-left: 5px;
+/* redes sociais */ 
+
+#social-container, #social-container p {
+    margin-bottom: 10px;   
 }
 
-p{
-    margin-top: 20px;
+#icones-redes-sociais img{  
+    width: 2.5rem; 
+}
+
+#icones-redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 8%;
+
+}
+/* registrar */
+
+#register-container p {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #f3f2ef;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #dcdcdc;
+}
+
+#footer-links {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#footer-links a {
+    color: #0073b1;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#footer-links a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
 }

@@ -57,4 +57,28 @@ public class EmpressaDao {
         return null; // Retorna null se nenhum usuário for encontrado
     }
     
+       
+       
+          public void Editar_Empresa(Empresa empresa) throws SQLException {
+
+        String sql = "update empresa set nome=?, setor=?,localizacao=?,WebSite=?,sobre=?,logo=? where id=?";
+
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+
+            
+            
+            pst.setString(1, empresa.getNome());
+            pst.setString(2, empresa.getSetor());
+            pst.setString(3, empresa.getLocalizacao());
+            pst.setString(4, empresa.getWebSite());
+            pst.setString(5, empresa.getSobre());
+            pst.setString(6, empresa.getLogo());
+            pst.setInt(7, empresa.getId());
+          
+            pst.executeUpdate();
+        }
+    }
+
+       
+       
 }

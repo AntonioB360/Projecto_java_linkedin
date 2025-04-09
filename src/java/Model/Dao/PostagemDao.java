@@ -59,6 +59,7 @@ public class PostagemDao {
             post.setId(rs.getInt("id"));
             post.setConteudo(rs.getString("conteudo"));
             post.setDataPostagem(rs.getTimestamp("data_publicacao"));
+            post.setUsuario(user);
           
             listar.add(post);
             }

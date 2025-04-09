@@ -32,7 +32,7 @@
             <div class="navbar__content">
                 <a href="/" class="navbar__brand">Empresa Connect</a>
                 <nav class="navbar__nav" role="navigation" aria-label="Navegação principal">
-                    <a href="/perfil" class="nav-link">Perfil</a>
+                    <a href="PerfilEmpresa.jsp" class="nav-link">Perfil</a>
                     <a href="/projetos" class="nav-link">Projetos</a>
                     <a href="Vagas.jsp" class="nav-link">Publicar Vagas</a>
                     <a href="/usuarios" class="nav-link">Usuários</a>

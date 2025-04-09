@@ -43,22 +43,8 @@ private static final String UPLOAD_DIR = "uploads";
         response.setContentType("text/html;charset=UTF-8");
      
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
+    
+  
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -67,11 +53,11 @@ private static final String UPLOAD_DIR = "uploads";
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+     private Empresa capturarDados(HttpServletRequest request)
             throws ServletException, IOException {
-    try {
-        processRequest(request, response);
+   
+    
+    
         
         String nome=request.getParameter("companyName");
         String email=request.getParameter("email");
@@ -84,12 +70,7 @@ private static final String UPLOAD_DIR = "uploads";
         Part filePart = request.getPart("logo");
         String relativePath = null;
         
-        
-        
-        
-        
-        
-        
+      
         if (filePart != null && filePart.getSize() > 0 && filePart.getSubmittedFileName() != null && !filePart.getSubmittedFileName().isEmpty()) {
             String fileName = filePart.getSubmittedFileName();
             String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIR;
@@ -109,18 +90,95 @@ private static final String UPLOAD_DIR = "uploads";
             // Não foi enviada uma foto. Podemos definir um caminho padrão ou deixar como null
             relativePath = "uploads/default.png"; // se quiser um avatar padrão
         }
-        EmpressaDao empt=new EmpressaDao();
-        Empresa empressa=new Empresa(0, nome, setor, localizacao, WebSite, descricao, relativePath, email, senha);
         
-        empt.cadastrar_usuario(empressa);
+        return new Empresa(0, nome, setor, localizacao, WebSite, descricao, relativePath, email, senha);
+    }
+       
+    
+
+  
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
+        processRequest(request, response);
+        String accao=request.getParameter("accao");
+        
+        switch(accao){
+            
+            case "cadastrar":
+                cadastro(request,response);
+                break;
+                
+                case "actualizar":
+                actualizar(request,response);
+                break;
+            default:
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "accao invalida");
+        }
+        
+    }
+    
+    
+
+      private void cadastro(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+      
+              
+         
+    try {
+        Empresa empresa=capturarDados(request);
+         
+   EmpressaDao em=new EmpressaDao();
+        em.cadastrar_usuario(empresa);
         response.sendRedirect("login.jsp");
+        
     } catch (SQLException ex) {
-         response.sendRedirect("erro.jsp");
+         response.sendRedirect("Erro.jsp");
         Logger.getLogger(CadastroEmpresa.class.getName()).log(Level.SEVERE, null, ex);
     }
        
+         
+        
     }
-
+      
+       private void actualizar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+      
+              
+         
+    try {
+        Empresa empresa=capturarDados(request);
+         
+   EmpressaDao em=new EmpressaDao();
+        em.Editar_Empresa(empresa);
+        response.sendRedirect("Home.jsp");
+        
+    } catch (SQLException ex) {
+         response.sendRedirect("Erro.jsp");
+        Logger.getLogger(CadastroEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+    }
+       
+         
+        
+    }
+    
     /**
      * Returns a short description of the servlet.
      *

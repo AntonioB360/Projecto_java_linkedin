@@ -1,0 +1,93 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 08/04/2025, 17:55:28
+    Author     : T
+*/
+
+ 
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: url("../")center center;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            text-decoration: none;
+            color: #0077b5;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #005582;
+        }
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            margin: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card h2 {
+            text-align: center;
+            background: #0077b5;
+            color: white;
+            padding: 15px;
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .card .icon {
+            font-size: 3em;
+            text-align: center;
+            margin: 20px 0;
+            color: #0077b5;
+        }
+        .card button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            background: #0077b5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .card button:hover {
+            background: #005582;
+        }
+    

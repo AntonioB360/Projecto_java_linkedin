@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -51,6 +53,61 @@ public class UsuarioDao {
             }
         }
         return null; // Retorna null se nenhum usuário for encontrado
+    }
+    
+    
+    public List<Usuario> Listar_user() throws SQLException {
+        List<Usuario> listar=new ArrayList<>();
+        String sql = "SELECT * FROM usuarios ";
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+        
+
+            ResultSet rs = pst.executeQuery();
+
+               while(rs.next()){
+                   
+                
+               listar.add(new Usuario(rs.getInt("id"),rs.getString("nome"),rs.getString("email"),rs.getString("senha"),rs.getString("cargo"),rs.getString("empresa"),rs.getString("localizacao"),rs.getString("resumo"),rs.getString("foto_perfil"))); 
+    
+                 
+            }
+        }return listar; 
+          
+        
+    }
+    
+     public List<Usuario> pesquisar_user(String id) throws SQLException {
+        List<Usuario> listar=new ArrayList<>();
+        String sql = "SELECT * FROM usuarios where id=?";
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+        
+                    pst.setString(1, id);
+               
+
+            ResultSet rs = pst.executeQuery();
+
+               while(rs.next()){
+                   
+                
+               listar.add(new Usuario(rs.getInt("id"),rs.getString("nome"),rs.getString("email"),rs.getString("senha"),rs.getString("cargo"),rs.getString("empresa"),rs.getString("localizacao"),rs.getString("resumo"),rs.getString("foto_perfil"))); 
+    
+                 
+            }
+        }return listar; 
+          
+        
+    }
+     
+            public void Eliminar_usuario(String id) throws SQLException {
+
+        String sql = "delete from  usuarios where id=?";
+
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+
+            pst.setString(1, id);
+           
+            pst.executeUpdate();
+        }
     }
 }
 

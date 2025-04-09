@@ -9,83 +9,78 @@
 <%@ page import="javax.servlet.http.HttpSession" %>
 
 
-
-
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Entrar ou cadastrar-se no LinkedIn</title>
-        <link rel="stylesheet" href="css/login.css"/>
-        <link rel="shortcut icon" href="imagens/icons/linkedin.png" type="image/x-icon">
-    </head>
-    <body>
+<html lang="pt">
 
-        <img src="imagens/IMG-20250331-WA0017.jpg" style="height: 40px" alt="alt"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de login</title>
+    <link rel="shortcut icon" href="icon/linkedin.png">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="login-container">
+            <div class="logo">
+                <a href="index.html"> 
+                   
+                </a>
+                <a href="Loginadm.jsp"> <img src="img/linkedin.png"  width="60" height="50"></a>
+            </div> 
+        <!--    <h1>Acesso</h1>  -->
         <form action="LoginF" method="post">
-            <div class="global">
-                <h1>Entrar</h1>
-                <div class="m">
-                    <div class="google"> <img src="imagens/icons/google.jpg" alt="alt"/> <a href="#">continue with Google</a> </div>
-
-                    <div class="apple" style="margin-top: 14px"> <img src="imagens/icons/apple.jpg" alt="alt"/> <a href="#">Entrar com a apple</a> </div>
-                </div>
- 
-                <!-- <div class="linha-ou">
-                    <hr>
-                    <span>
-                        ou
-                    </span>
-                    <hr> 
-                </div>
--->
-               
-  
-<input type="text" id="id" name="email" placeholder="E-mail ou telefone">
-
-                <input type="password" id="id" minlength="8"  name="senha"  placeholder="Senha">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" autocomplete="off">
+                <label for="password">Senha</label>
+                <input type="password" name="senha" id="password" placeholder="Digite sua senha">
                 <select id="id" name="tipo">
                     <option value="usuario">usuario</option>
                     <option value="empresa">empresa</option>
                   
-                </select><br>
-
-                <a href="#">Esqueceu a senha?</a>
-                <p><input type="checkbox" id="id"value="r"> Me mantenha na conta</p>
-
-
+                </select>
+                <a href="#" id="forgot-pass">Redefinir senha?</a>
                 <input type="submit" value="Entrar">
+            </form>
+            <div id="social-container">
+                <p>Ou entre com suas redes sociais</p>
 
-            </div>
-        </form>
+                <div id="icones-redes-sociais">
+                    <a href="#">
+                        <img id="facebook" src="icon/facebook2.png">
+                    </a>
             
-        <p class="te">Ainda faz parte do Linkedin <a href="Cadastro.jsp">cadastre-se agora</a></p>
-        <p class="te"><a href="CadastroEmpresa.jsp">Cadastrar-se como empresa</a></p>
+                    <a href="#">
+                        <img src="icon/google2.png">
+                    </a>
 
-        <footer>
-            &COPY;2025 <li>contrato de usuario</li>
-            <li>Politica de Privacidade do LinkedIn</li>
-            <li>Diretrizes da comunidade</li>
-            <li>Politicas de Cookies</li>
-            <li>Politica de direitos Autorais</li>
-            <li>Enviar feedback</li>
-            <select id="id">
-                <option value="">Idioma</option>
-                <option value="second">Portugues</option>
-                <option value="third">Engles</option>
-            </select>
-
-
-        </footer>
-
-
-
-
-
-
-
-
-
-    </body>
+                    <a href="#">
+                        <img src="icon/linkedin1.png">
+                    </a>
+                </div>
+                
+            </div>
+            <div id="register-container">
+                <p>Ainda não tem uma conta?</p>
+                <a href="Cadastro.jsp">Registrar-se</a>
+            </div>
+        </div>
+    </div>
+    <br></br>
+    
+<!--                     </div> -->
+<footer>
+    <div id="footer-links">
+        <a href="#">Sobre</a>
+        <a href="#">Acessibilidade</a>
+        <a href="#">Central de Ajuda</a>
+        <a href="#">Privacidade e Termos</a>
+        <a href="#">Opções de Publicidade</a>
+        <a href="#">Carreiras</a>
+        <a href="#">Marketing</a>
+    </div>
+    <p>&copy; 2025 LinkedIn</p>
+</footer>
+</body>
 </html>

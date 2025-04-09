@@ -1,14 +1,10 @@
-package Controler;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
+package Controler;
 
-import Model.Dao.EmpressaDao;
-import Model.Usuario;
 import Model.Dao.UsuarioDao;
-import Model.Empresa;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -19,14 +15,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author us
+ * @author T
  */
-@WebServlet("/LoginF")
-public class LoginF extends HttpServlet {
+@WebServlet("/Deletar")
+public class Deletar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,7 +34,8 @@ public class LoginF extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
+        response.setContentType("text/html;charset=UTF-8");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -70,47 +66,14 @@ public class LoginF extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+            String id=request.getParameter("id");
             
-            String email=request.getParameter("email");
-            String senha=request.getParameter("senha");
-            String tipo=request.getParameter("tipo");
-        
-            
-            UsuarioDao user= new UsuarioDao();
-        HttpSession session=request.getSession();
-            
-                if("usuario".equals(tipo)){
-                Usuario usuario=user.validar(email, senha);
-
-                if(usuario != null){
-                    session.setAttribute("usuario", usuario);
-                    session.setAttribute("role", "usuario");
-                    response.sendRedirect("Feed.jsp");
-                }else{
-                    response.sendRedirect("login.jsp?erro=usuario");
-                }
-                       
-                }else if("empresa".equals(tipo)){
-                    Empresa empresa=EmpressaDao.validar(email, senha);
-                    
-                    if(empresa!= null){
-                        session.setAttribute("empresal", empresa);
-                        session.setAttribute("role", "empresa");
-                        response.sendRedirect("Home.jsp");
-                    }else{
-                        response.sendRedirect("login.jsp?erro=empresa");
-   
-                    }
-                    
-                }else if("adm".equals(tipo)){
-          
-                    response.sendRedirect("DashbordAdm.jsp");
-                }else{
-                    response.sendRedirect("Loginadm.jsp?erro=usuario");
-                }
- 
+            UsuarioDao user=new UsuarioDao();
+            user.Eliminar_usuario(id);
+            response.sendRedirect("listarUsuarios.jsp");
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            Logger.getLogger(Deletar.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("Erro.jsp");
         }
     }
 
