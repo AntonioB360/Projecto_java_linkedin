@@ -76,13 +76,13 @@ public class UsuarioDao {
         
     }
     
-     public List<Usuario> pesquisar_user(String id) throws SQLException {
-        List<Usuario> listar=new ArrayList<>();
-        String sql = "SELECT * FROM usuarios where id=?";
+     public List<Usuario> buscarUsuarios(String searchQuery) throws SQLException {
+    List<Usuario> listar = new ArrayList<>();
+    String sql = "SELECT * FROM usuarios WHERE nome LIKE ? OR email LIKE ?";
         try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
         
-                    pst.setString(1, id);
-               
+         pst.setString(1, "%" + searchQuery + "%");
+        pst.setString(2, "%" + searchQuery + "%");
 
             ResultSet rs = pst.executeQuery();
 
@@ -95,6 +95,14 @@ public class UsuarioDao {
             }
         }return listar; 
           
+        
+        
+
+        
+        
+        
+        
+        
         
     }
      

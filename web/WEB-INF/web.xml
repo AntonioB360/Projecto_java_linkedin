@@ -44,6 +44,10 @@
         <servlet-name>Pesquisar</servlet-name>
         <servlet-class>Controler.Pesquisar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarUsuariosServlet</servlet-name>
+        <servlet-class>Controler.ListarUsuariosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Cadastro</servlet-name>
         <url-pattern>/Controler/Cadastro</url-pattern>
@@ -84,7 +88,10 @@
         <servlet-name>Deletar</servlet-name>
         <url-pattern>/Controler/Deletar</url-pattern>
     </servlet-mapping>
-   
+    <servlet-mapping>
+        <servlet-name>ListarUsuariosServlet</servlet-name>
+        <url-pattern>/ListarUsuariosServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
