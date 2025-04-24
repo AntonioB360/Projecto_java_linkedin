@@ -83,6 +83,7 @@ private static final String UPLOAD_DIR = "uploads";
         String empresa=request.getParameter("empresa");
         String localizacao=request.getParameter("localizacao");
         String resumo=request.getParameter("resumo");
+        String status=request.getParameter("status");
                     Part filePart = request.getPart("foto");
             String relativePath = null;
 
@@ -112,7 +113,7 @@ if (filePart != null && filePart.getSize() > 0 && filePart.getSubmittedFileName(
     relativePath = "uploads/default.png"; // se quiser um avatar padrão
 }
         UsuarioDao user =new UsuarioDao();
-        Usuario us=new Usuario(0,nome, email, senha, cargo, empresa, localizacao, resumo,relativePath );
+        Usuario us=new Usuario(0,nome, email, senha, cargo, empresa, localizacao, resumo,status,relativePath );
         
         user.cadastrar_usuario(us);
         response.sendRedirect("login.jsp");

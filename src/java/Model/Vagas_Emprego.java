@@ -19,6 +19,7 @@ public class Vagas_Emprego {
     private String Benefícios;
     private String experiencia;
     private int empresa_id;
+    private int id_usuario;
 
     public Vagas_Emprego(int id, String titulo, String empresa, String localizacao, String descricao, Double salario, String Benefícios, String experiencia, int empresa_id) {
         this.id = id;
@@ -30,8 +31,21 @@ public class Vagas_Emprego {
         this.Benefícios = Benefícios;
         this.experiencia = experiencia;
         this.empresa_id = empresa_id;
+      
     }
 
+    public Vagas_Emprego(int id, String titulo, String empresa, String localizacao, String descricao, Double salario, String Benefícios, String experiencia) {
+        this.id = id;
+        this.titulo = titulo;
+        this.empresa = empresa;
+        this.localizacao = localizacao;
+        this.descricao = descricao;
+        this.salario = salario;
+        this.Benefícios = Benefícios;
+        this.experiencia = experiencia;
+    }
+
+    
     public int getId() {
         return id;
     }
@@ -103,6 +117,17 @@ public class Vagas_Emprego {
     public void setEmpresa_id(int empresa_id) {
         this.empresa_id = empresa_id;
     }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+
+
 
    
     

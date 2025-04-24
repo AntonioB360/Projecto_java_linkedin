@@ -51,7 +51,7 @@
         <ul>
             <li><a href="#" class="active-link"><img src="images/home.png" alt="home"> <span>Inicio</span></a></li>
             <li><a href="Rede.jsp"><img src="images/network.png" alt="network"> <span>Minha rede</span></a></li>
-            <li><a href="Vagas.jsp"><img src="images/jobs.png" alt="jobs"> <span>Trabalho</span></a></li>
+            <li><a href="Vagas_cand.jsp"><img src="images/jobs.png" alt="jobs"> <span>Trabalho</span></a></li>
             <li><a href="mensagem.jsp"><img src="images/message.png" alt="message"> <span>Menssagen</span></a></li>
             <li><a href="Notificacao.jsp"><img src="images/notification.png" alt="notification"> <span>Notificacoes</span></a></li>
         </ul>
@@ -268,7 +268,7 @@
                     </div>
                     <div class="post-activity-link">
                         <img src="images/comment.png">
-                        <span>Comment</span>
+                        <a href="PublicacaoDetalhes.jsp?id=<%=pos.getId()%>"><span>Comment</span></a>
                     </div>
                     <div class="post-activity-link">
                         <img src="images/share.png">
@@ -430,7 +430,7 @@
 
                 <div class="copyright-msg">
                     <img src="images/logo.png">
-                    <p>Linkedin &#169; 2025. All Rights Reserved</p>
+                    <p>GLAMVC &#169; 2025. All Rights Reserved</p>
                 </div>
             </div>
             </footer>

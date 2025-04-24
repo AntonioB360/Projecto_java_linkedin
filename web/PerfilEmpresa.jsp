@@ -73,26 +73,30 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Nome da Empresa</label>
-                        <input type="text" class="form-control" name="nome" placeholder="<%=empresa.getNome()%>" id="companyName" required>
+                        <input type="text" class="form-control" name="nome" value="<%=empresa.getNome()%>" id="companyName" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">setor</label>
-                        <textarea class="form-control" id="companyDescription" name="setor" placeholder="<%=empresa.getSetor()%>" rows="4" required></textarea>
-                         <label class="form-label">Localizacao</label>
-                         <input type="text" class="form-control" id="companyName" placeholder="<%=empresa.getLocalizacao()%>" required>
+                        <label class="form-label">Setor</label>
+                        <textarea class="form-control" id="companyDescription" name="setor" rows="4" required><%=empresa.getSetor()%></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Localização</label>
+                        <input type="text" class="form-control" id="companyLocation" name="localizacao" value="<%=empresa.getLocalizacao()%>" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Website</label>
-                        <input type="text" class="form-control" id="companyName" placeholder="<%=empresa.getWebSite()%>" name="Website" required>
-                        
-                         <label class="form-label">Sobre</label>
-                         <input type="text" class="form-control" name="sobre" id="companyName" placeholder="<%=empresa.getSobre()%>" required>
-                        
+                        <input type="text" class="form-control" id="companyWebsite" name="website" value="<%=empresa.getWebSite()%>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Sobre</label>
+                        <input type="text" class="form-control" name="sobre" id="companyAbout" value="<%=empresa.getSobre()%>" required>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Logo (150x150px)</label>
                         <input type="file" class="form-control" name="logo" id="logoUpload" accept="image/*">
                     </div>
-                    <input type="hidden" id="id" name="acao" value="actualizar">
-                    <input type="hidden" id="id" name="id" value="<%=empresa.getId()%>">
+                    <input type="hidden" name="accao" value="actualizar">
+                    <input type="hidden" name="id" value="<%=empresa.getId()%>">
                     <div class="mb-3">
                         <label class="form-label">Foto de Capa (1200x300px)</label>
                         <input type="file" class="form-control" id="coverUpload" accept="image/*">
@@ -106,7 +110,6 @@
         </div>
     </div>
 </div>
-
 <header>
     <div class="cover-photo">
         <img src="<%=empresa.getLogo()%>" alt="Capa da Empresa" class="w-100 h-100 object-fit-cover" id="coverImage">
@@ -137,7 +140,7 @@
                 <a class="nav-link active" href="#sobre"><%=empresa.getSobre()%></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#postagens">Postagens</a>
+                <a class="nav-link" href="#postagens"><%=empresa.getId()%></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#funcionarios">Equipe</a>

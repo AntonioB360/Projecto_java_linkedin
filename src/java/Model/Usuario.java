@@ -18,10 +18,9 @@ public class Usuario {
     private String localizacao;
     private String resumo;
     private String foto_perfil;
+    private String status;
 
-    
-    
-    public Usuario(int id, String nome, String email, String senha, String cargo, String empresa, String localizacao, String resumo, String foto_perfil) {
+    public Usuario(int id, String nome, String email, String senha, String cargo, String empresa, String localizacao, String resumo, String foto_perfil, String status) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -31,16 +30,14 @@ public class Usuario {
         this.localizacao = localizacao;
         this.resumo = resumo;
         this.foto_perfil = foto_perfil;
+        this.status = status;
     }
 
     public Usuario() {
     }
+    
+    
 
-    
-    
-    
-    
-    
     public int getId() {
         return id;
     }
@@ -112,7 +109,17 @@ public class Usuario {
     public void setFoto_perfil(String foto_perfil) {
         this.foto_perfil = foto_perfil;
     }
-            
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
+   
        
     
 }

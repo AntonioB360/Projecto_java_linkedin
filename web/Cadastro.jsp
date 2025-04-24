@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <div class="logo">
-            <a href="index.html">
+            <a href="login.jsp">
                 <img src="icon/linkedin1.png" width="60" height="50">
             </a>
         </div>
@@ -65,6 +65,7 @@
                     <div class="input-box">
                         <span class="details">Resumo</span>
                         <input type="text" id="resumo" name="resumo" required> <br>
+                        <input type="hidden" id="id" name="satus" value="activo">
                 </div>
                     
                     <hr>

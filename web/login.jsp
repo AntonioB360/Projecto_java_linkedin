@@ -4,7 +4,6 @@
     Author     : Direitor
 --%>
 
-<%@page import="Model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.HttpSession" %>
 
@@ -64,6 +63,8 @@
             <div id="register-container">
                 <p>Ainda não tem uma conta?</p>
                 <a href="Cadastro.jsp">Registrar-se</a>
+                <p>Cadastrar-se como Empresa?</p>
+                <a href="CadastroEmpresa.jsp">Registrar-se</a>
             </div>
         </div>
     </div>

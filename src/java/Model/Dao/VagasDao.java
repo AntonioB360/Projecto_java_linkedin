@@ -5,10 +5,14 @@
 package Model.Dao;
 
 import Model.Postagens;
+import Model.Usuario;
 import Model.Vagas_Emprego;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -35,5 +39,49 @@ public class VagasDao {
         }
 
     }
+    
+        public List<Vagas_Emprego> Listar_vagas() throws SQLException {
+        List<Vagas_Emprego> listar=new ArrayList<>();
+        String sql = "SELECT *FROM vagas";
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+        
 
+            ResultSet rs = pst.executeQuery();
+
+               while(rs.next()){
+                   
+                
+               listar.add(new Vagas_Emprego(rs.getInt("id"),rs.getString("titulo"),rs.getString("empresa"),rs.getString("localizacao"),rs.getString("descricao"),rs.getDouble("salario"),rs.getString("Benefícios"),rs.getString("experiencia")));
+
+    
+                 
+            }
+        }return listar; 
+          
+        
+    }
+        
+            public List<Vagas_Emprego> buscarVagas(String searchQuery) throws SQLException {
+    List<Vagas_Emprego> listar = new ArrayList<>();
+    String sql = "SELECT * FROM vagas WHERE nome LIKE ? OR email LIKE ?";
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+        
+         pst.setString(1, "%" + searchQuery + "%");
+        pst.setString(2, "%" + searchQuery + "%");
+
+
+            ResultSet rs = pst.executeQuery();
+
+               while(rs.next()){
+                   
+                
+               listar.add(new Vagas_Emprego(rs.getInt("id"),rs.getString("titulo"),rs.getString("empresa"),rs.getString("localizacao"),rs.getString("descricao"),rs.getDouble("salario"),rs.getString("Benefícios"),rs.getString("experiencia")));
+
+    
+                 
+            }
+        }return listar; 
+          
+        
+    }
 }

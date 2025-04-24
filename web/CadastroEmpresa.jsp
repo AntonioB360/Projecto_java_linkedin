@@ -4,6 +4,15 @@
     Author     : T
 --%>
 
+<%@page import="Model.Usuario"%>
+<%
+    HttpSession sessao = request.getSession(false);
+    Usuario usuario = (sessao != null) ? (Usuario) sessao.getAttribute("usuario") : null;
+    if (usuario == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,7 +34,7 @@
                 <!-- Dados Básicos -->
                 <div class="form-group">
                     <label for="companyName">Nome da Empresa <span class="required">*</span></label>
-                    <input type="text" id="companyName" name="companyName" required 
+                    <input type="text" id="companyName" name="nome" required 
                            placeholder="Ex: Tech Solutions Ltda" autocomplete="organization">
                     
                      <label for="companyEmail">Email da Empresa <span class="required">*</span></label>
@@ -63,7 +72,7 @@
 
                 <div class="form-group full-width">
                     <label for="description">Sobre a Empresa</label>
-                    <textarea id="description" name="description" rows="5"
+                    <textarea id="description" name="descricao" rows="5"
                               placeholder="Descreva sua empresa, missão e valores"></textarea>
                     <span class="char-counter"><span id="charCount">0</span>/500</span>
                 </div>

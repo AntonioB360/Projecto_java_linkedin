@@ -1,15 +1,20 @@
-<%-- 
-    Document   : listarUsuarios
-    Created on : 08/04/2025, 23:45:04
-    Author     : T
---%>
-
 <%@page import="Model.Usuario"%>
 <%@page import="Model.Dao.UsuarioDao"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    
+    
+    HttpSession sessao = request.getSession(false);
+    Usuario usuario = (sessao != null) ? (Usuario) sessao.getAttribute("usuario") : null;
+    if (usuario == null) {
+        response.sendRedirect("Loginadm.jsp");
+        return;
+    }
+
+
     UsuarioDao user = new UsuarioDao();
+    
     String searchQuery = request.getParameter("search"); // Obtém o termo de pesquisa
     List<Usuario> lista;
 
@@ -29,20 +34,34 @@
     th { background: #eee; }
     .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
     input, button { padding: 10px; margin: 10px 0; }
+    .hidden { display: none; }
   </style>
+  <script>
+    function toggleField(action) {
+      const field = document.getElementById(action + "Field");
+      field.classList.toggle("hidden");
+    }
+  </script>
 </head>
 <body>
   <div class="container">
     <!-- Formulário de pesquisa -->
-    <form action="listarUsuarios" method="get">
-      <input type="text" name="search" placeholder="Pesquisar usuários" value="<%= searchQuery != null ? searchQuery : "" %>">
-      <button type="submit">Pesquisar</button>
+   <form action="listarUsuarios.jsp" method="get">
+  <input type="text" name="search" placeholder="Pesquisar usuários" value="<%= searchQuery != null ? searchQuery : "" %>">
+  <button type="submit">Pesquisar</button>
+</form>
+    <!-- Botão para eliminar -->
+    <button type="button" onclick="toggleField('eliminar')">Eliminar</button>
+    <form action="Deletar" method="post" id="eliminarField" class="hidden">
+      <input type="text" name="id" placeholder="Digite o ID para eliminar">
+      <button type="submit">Confirmar Eliminação</button>
     </form>
 
-    <!-- Formulário para deletar -->
-    <form action="Deletar" method="post">
-      <input type="text" name="id" placeholder="eliminar com id">
-      <button type="submit">Eliminar</button>
+    <!-- Botão para bloquear -->
+    <button type="button" onclick="toggleField('bloquear')">Bloquear</button>
+    <form action="Bloquear" method="post" id="bloquearField" class="hidden">
+      <input type="text" name="id" placeholder="Digite o ID para bloquear">
+      <button type="submit">Confirmar Bloqueio</button>
     </form>
 
     <!-- Tabela de usuários -->
@@ -62,7 +81,7 @@
         <td><%= u.getNome() %></td>
         <td><%= u.getEmail() %></td>
         <td><%= u.getCargo() %></td>
-        <td>activo</td>
+        <td><%= u.getStatus()%></td>
       </tr>
       <%
         }

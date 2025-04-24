@@ -59,25 +59,21 @@ public class EmpressaDao {
     
        
        
-          public void Editar_Empresa(Empresa empresa) throws SQLException {
+     public boolean Editar_Empresa(Empresa empresa, int id) throws SQLException {
+    String sql = "UPDATE empresas SET nome = ?, setor = ?, localizacao = ?, website = ?, descricao = ?, logo = ? WHERE id = ?";
+    try (Connection conn = Conexao.getCom(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setString(1, empresa.getNome());
+        stmt.setString(2, empresa.getSetor());
+        stmt.setString(3, empresa.getLocalizacao());
+        stmt.setString(4, empresa.getWebSite());
+        stmt.setString(5, empresa.getSobre());
+        stmt.setString(6, empresa.getLogo());
+        stmt.setInt(7, id);
 
-        String sql = "update empresa set nome=?, setor=?,localizacao=?,WebSite=?,sobre=?,logo=? where id=?";
-
-        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
-
-            
-            
-            pst.setString(1, empresa.getNome());
-            pst.setString(2, empresa.getSetor());
-            pst.setString(3, empresa.getLocalizacao());
-            pst.setString(4, empresa.getWebSite());
-            pst.setString(5, empresa.getSobre());
-            pst.setString(6, empresa.getLogo());
-            pst.setInt(7, empresa.getId());
-          
-            pst.executeUpdate();
-        }
+        int rowsAffected = stmt.executeUpdate();
+        return rowsAffected > 0; // Retorna true se pelo menos uma linha foi atualizada
     }
+}
 
        
        

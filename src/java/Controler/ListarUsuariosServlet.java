@@ -1,3 +1,5 @@
+package Controler;
+
 
 import Model.Dao.UsuarioDao;
 import Model.Usuario;
@@ -21,23 +23,18 @@ public class ListarUsuariosServlet extends HttpServlet {
         String searchQuery = request.getParameter("search");
         List<Usuario> lista;
 
-        if (searchQuery != null && !searchQuery.trim().isEmpty()) {
-            try {
+        try {
+            if (searchQuery != null && !searchQuery.trim().isEmpty()) {
                 lista = userDao.buscarUsuarios(searchQuery);
-                 request.setAttribute("usuarios", lista);
-        request.setAttribute("searchQuery", searchQuery);
-        request.getRequestDispatcher("/listarUsuarios.jsp").forward(request, response);
-            } catch (SQLException ex) {
-                Logger.getLogger(ListarUsuariosServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            try {
+            } else {
                 lista = userDao.Listar_user();
-            } catch (SQLException ex) {
-                Logger.getLogger(ListarUsuariosServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
+            request.setAttribute("usuarios", lista);
+            request.setAttribute("searchQuery", searchQuery);
+            request.getRequestDispatcher("/listarUsuarios.jsp").forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ListarUsuariosServlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("Erro.jsp");
         }
-
-       
     }
 }

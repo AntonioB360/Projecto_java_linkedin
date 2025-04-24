@@ -633,3 +633,37 @@ a{
 
     
 }
+
+.comment-section {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment-submit {
+    align-self: flex-end;
+    padding: 5px 10px;
+    background-color: #0073b1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-submit:hover {
+    background-color: #005582;
+}
+
+.like-count {
+    margin-left: 5px;
+    font-weight: bold;
+    color: #0073b1;
+}

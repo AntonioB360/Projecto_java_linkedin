@@ -1,20 +1,27 @@
 <%-- 
-    Document   : DashbordAdm
-    Created on : 08/04/2025, 17:53:59
+    Document   : Bloquear_usuarios
+    Created on : 20/04/2025, 22:17:44
     Author     : T
 --%>
 
-
+<%@page import="Model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    HttpSession sessao = request.getSession(false);
+    Usuario usuario = (sessao != null) ? (Usuario) sessao.getAttribute("usuario") : null;
+    if (usuario == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Administrativo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="shortcut icon" href="img/linkedin1.png">
-    <style>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        
+          <style>
         /* Estilos Gerais */
         body {
             font-family: 'Roboto', sans-serif;
@@ -51,7 +58,7 @@
         section {
             padding: 20px;
         }
-        .card{
+        .card {
             background: white;
             border-radius: 10px;
             margin: 20px 0;
@@ -151,27 +158,32 @@
             margin: 20px 0;
         }
     </style>
-</head>
-<body>
-    <!-- Cabeçalho -->
-    <header>
-        <h1>Painel Administrativo</h1>
-    </header>
-
-      <!-- Área de Pesquisa -->
-      <div class="search-container">
-        <input type="text" placeholder="Pesquisar usuário por nome ou email...">
-        <button class="search">Pesquisar</button>
-    </div>
-    <!-- Navegação -->
-    <nav>
-        <a href="listarUsuarios.jsp">Bloquear Contas</a>
-        <a href="Promover_contas.jsp">Promover Contas</a>
-        <a href="Restringir_premiun.jsp">Restringir ao Premium</a>
-        <a href="Publicar_feed.jsp">Publicar no Feed</a>
-    </nav>
-
-
+    </head>
+    <body>
+         <!-- Seção Bloquear Usuários -->
+    <section id="bloquear" class="block-users-section">
+        <div class="card">
+            <h2>Bloquear Usuários</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>João Silva</td>
+                        <td>joao.silva@email.com</td>
+                        <td><button class="block" onclick="bloquearUsuario('João Silva')">Bloquear</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
     <!-- Script JavaScript -->
     <script>
         function bloquearUsuario(nome) {
@@ -195,5 +207,5 @@
             }
         }
     </script>
-</body>
+    </body>
 </html>
