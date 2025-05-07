@@ -19,6 +19,7 @@ public class Usuario {
     private String resumo;
     private String foto_perfil;
     private String status;
+    private String role;
 
     public Usuario(int id, String nome, String email, String senha, String cargo, String empresa, String localizacao, String resumo, String foto_perfil, String status) {
         this.id = id;
@@ -32,6 +33,10 @@ public class Usuario {
         this.foto_perfil = foto_perfil;
         this.status = status;
     }
+
+   
+    
+    
 
     public Usuario() {
     }
@@ -116,6 +121,14 @@ public class Usuario {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     

@@ -1,9 +1,17 @@
-<!-- filepath: c:\xampp\htdocs\Loja de Materias\listarUsuarios.jsp -->
+<%-- 
+    Document   : Listar_Empressas
+    Created on : 30/04/2025, 01:36:28
+    Author     : T
+--%>
+
+<%@page import="Model.Empresa"%>
+<%@page import="Model.Dao.EmpressaDao"%>
 <%@page import="Model.Usuario"%>
 <%@page import="Model.Dao.UsuarioDao"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+
     HttpSession sessao = request.getSession(false);
     Usuario usuario = (sessao != null) ? (Usuario) sessao.getAttribute("usuario") : null;
     if (usuario == null) {
@@ -11,6 +19,9 @@
         return;
     }
 
+        EmpressaDao emp=new EmpressaDao();
+        List<Empresa> list=emp.listar_empresa();
+    
     UsuarioDao user = new UsuarioDao();
 
     String searchQuery = request.getParameter("search"); // Obtém o termo de pesquisa
@@ -56,37 +67,21 @@
                 padding: 10px;
                 margin: 10px 0;
             }
-            tr button {
+
+            tr button{
                 background: #28a745;
                 color: white;
-                border: none;
-                cursor: pointer;
             }
-            tr button:hover {
-                background: #218838;
+            .hidden {
+                display: none;
             }
             .search-container {
                 display: flex;
                 justify-content: center;
                 margin: 20px 0;
             }
-            /* Estilo para ocultar o formulário inicialmente */
-            .hidden-form {
-                display: none;
-            }
-            /* Exibir o formulário quando o checkbox estiver marcado */
-            input[type="checkbox"]:checked + .hidden-form {
-                display: block;
-            }
             
-             nav {
-                display: flex;
-                justify-content: center;
-                background-color: white;
-                padding: 10px 0;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            nav a {
+                  nav a {
                 text-decoration: none;
                 color: #0073b1;
                 margin: 0 15px;
@@ -106,14 +101,19 @@
             section {
                 padding: 20px;
             }
-            .card{
-                background: white;
-                border-radius: 10px;
-                margin: 20px 0;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 20px;
+            
+             /* Estilo para ocultar o formulário inicialmente */
+            .hidden-form {
+                display: none;
             }
+            /* Exibir o formulário quando o checkbox estiver marcado */
+            input[type="checkbox"]:checked + .hidden-form {
+                display: block;
+            }
+            
+            
         </style>
+
     </head>
     <body>
         <div class="container">
@@ -127,58 +127,71 @@
             <!-- Formulário de pesquisa -->
             <form action="listarUsuarios.jsp" method="get">
                 <div class="search-container">
-                    <input type="text" name="search" placeholder="Pesquisar usuários" value="<%= searchQuery != null ? searchQuery : ""%>">
+                    <input type="text" name="search" placeholder="Pesquisar usuários" value="<%= searchQuery != null ? searchQuery : ""%>"><!-- comment -->        
                     <button class="search" type="submit">Pesquisar</button>
                 </div>
-            </form>
 
-            <!-- Tabela de usuários -->
-            <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Cargo</th>
-                    <th>Status</th>
-                    <th>Ação</th>
-                    <th>Ação</th>
-                </tr>
-                <%
-                    for (Usuario u : lista) {
-                %>
-                <tr>
-                    <td><%= u.getId() %></td>
-                    <td><%= u.getNome() %></td>
-                    <td><%= u.getEmail() %></td>
-                    <td><%= u.getCargo() %></td>
-                    <td><%= u.getStatus() %></td>
-                    <td>
-                        <!-- Checkbox para controlar a visibilidade -->
-                        <input type="checkbox" id="toggleForm<%= u.getId() %>">
+
+
+                <!-- Botão para bloquear -->
+                <button type="button" onclick="toggleField('bloquear')">Bloquear</button>
+                <form action="Bloquear" method="post" id="bloquearField" class="hidden">
+                    <input type="text" name="id" placeholder="Digite o ID para bloquear">
+                    <button type="submit">Confirmar Bloqueio</button>
+                </form>
+
+                <!-- Tabela de usuários -->
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome da empresa</th>
+                        <th>Email</th>
+                        <th>setor</th>
+                        <th>localizacao</th>
+                          <th>Status</th>
+                        <th>Acao</th>
+                        <th>Acao</th>
+                    </tr>
+                    <%
+                        for (Empresa ep : list) {
+                    %>
+                    <tr>
+                        <td><%= ep.getId()%></td>
+                        <td><%= ep.getNome()%></td>
+                        <td><%= ep.getEmail()%></td>
+                        <td><%= ep.getSetor()%></td>
+                        <td><%= ep.getLocalizacao()%></td> 
+                        <td><%= ep.getStatus()%></td> 
+                        
+
+
+
+                     <!-- Checkbox para controlar a visibilidade -->
+                        <input type="checkbox" id="toggleForm<%= ep.getId() %>">
                         Satatus
                         <!-- Formulário oculto inicialmente -->
-                        <form action="Deletar" method="post" class="hidden-form">
+                        <form action="EmpresaStatus" method="post" class="hidden-form">
                             <select name="novoStatus">
                                 <option value="bloqueado">Bloquear</option>
                                 <option value="activo">Desbloquear</option>
                                 <option value="nao verificado">Não verificado</option>
                             </select>
                             <button type="submit" class="block">Mudar Status</button>
-                            <input type="hidden" name="id" value="<%= u.getId() %>">
+                            <input type="hidden" name="id" value="<%= ep.getId() %>">
                             <input type="hidden" name="acao" value="bloquear">
                         </form>
-                            
-                          <form action="Deletar" method="post" id="eliminarField" class="hidden">
+
+                    <form action="EmpresaStatus" method="post" id="eliminarField" class="hidden">
                         <td><button type="submit" class="block">Eliminar conta</button></td>
-                        <input type="hidden" id="id" name="id" value="<%= u.getId()%>">
+                        <input type="hidden" id="id" name="id" value="<%=ep.getId()%>">
                         <input type="hidden" id="id" name="acao" value="eliminar">
                     </form>
-                    </td>
-                </tr>
-                <%
-                    }
-                %>
-            </table>
+
+                    </tr>
+                    <%
+                        }
+                    %>
+                </table>
         </div>
     </body>
 </html>

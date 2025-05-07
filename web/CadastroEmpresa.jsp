@@ -4,15 +4,8 @@
     Author     : T
 --%>
 
-<%@page import="Model.Usuario"%>
-<%
-    HttpSession sessao = request.getSession(false);
-    Usuario usuario = (sessao != null) ? (Usuario) sessao.getAttribute("usuario") : null;
-    if (usuario == null) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
-%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-BR">

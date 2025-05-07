@@ -1,20 +1,17 @@
-package Controler;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
+package Controler;
+
 import Model.Dao.EmpressaDao;
-import Model.Usuario;
 import Model.Dao.UsuarioDao;
 import Model.Empresa;
+import Model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,10 +19,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author us
+ * @author T
  */
-@WebServlet("/LoginF")
-public class LoginF extends HttpServlet {
+public class LoginStatus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,7 +34,8 @@ public class LoginF extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+ 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,7 +64,9 @@ public class LoginF extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
+        processRequest(request, response);
+        
+           try {
             processRequest(request, response);
 
             String email = request.getParameter("email");
@@ -77,7 +76,7 @@ public class LoginF extends HttpServlet {
             UsuarioDao user = new UsuarioDao();
             HttpSession session = request.getSession();
 
-            if ("usuario".equals(tipo)) {
+            if ("usuario".equals(tipo) ) {
                 Usuario usuario = user.validar(email, senha);
 
                 if (usuario != null) {

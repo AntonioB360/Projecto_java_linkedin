@@ -22,7 +22,7 @@
             <div class="logo">
                 <img src="img/rede.jfif" width="160px" alt="Logo da Rede Social">
             </div>
-            <form action="LoginF" method="post">
+            <form action="LoginStatus" method="post">
                 <div class="input-group">
                     <label for="username">Usuário:</label>
                     <input type="text" id="username" name="email" placeholder="Digite seu nome de usuário" required>

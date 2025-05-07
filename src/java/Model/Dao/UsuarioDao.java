@@ -20,7 +20,7 @@ public class UsuarioDao {
 
         public void cadastrar_usuario(Usuario usuario) throws SQLException {
 
-        String sql = "insert into usuarios (nome, email, senha, cargo, empresa, localizacao, resumo, foto_perfil) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into usuarios (nome, email, senha, cargo, empresa, localizacao, resumo, foto_perfil,status) values (?,?,?,?,?,?,?,?,?)";
 
         try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
 
@@ -31,7 +31,8 @@ public class UsuarioDao {
             pst.setString(5, usuario.getEmpresa());
             pst.setString(6, usuario.getLocalizacao());
             pst.setString(7, usuario.getResumo());
-            pst.setString(8, usuario.getFoto_perfil());
+            pst.setString(8, usuario.getStatus());
+            pst.setString(9, usuario.getFoto_perfil());
             pst.executeUpdate();
         }
     }
@@ -47,7 +48,8 @@ public class UsuarioDao {
             if (rs.next()) {
                 
                 Usuario usuario = new Usuario(rs.getInt("id"),rs.getString("nome"),rs.getString("email"),rs.getString("senha"),rs.getString("cargo"),rs.getString("empresa"),rs.getString("localizacao"),rs.getString("resumo"),rs.getString("foto_perfil"),rs.getString("status"));
-    
+                usuario.setRole(rs.getString("role"));
+                
                 // Preencha outros campos do objeto Usuario, se necessário
                 return usuario;
             }
@@ -95,15 +97,7 @@ public class UsuarioDao {
                  
             }
         }return listar; 
-          
-        
-        
 
-        
-        
-        
-        
-        
         
     }
      
@@ -114,6 +108,21 @@ public class UsuarioDao {
         try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
 
             pst.setString(1, id);
+           
+            pst.executeUpdate();
+        }
+    }
+            
+            
+            public void status_usuario( String status,String id) throws SQLException {
+
+        String sql = "update usuarios set status=? where id=?";
+
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+
+             pst.setString(1, status);
+            pst.setString(2, id);
+           
            
             pst.executeUpdate();
         }

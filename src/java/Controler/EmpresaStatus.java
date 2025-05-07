@@ -4,14 +4,12 @@
  */
 package Controler;
 
-import Model.Dao.UsuarioDao;
+import Model.Dao.EmpressaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.System.Logger.Level;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author T
  */
-@WebServlet("/Deletar")
-public class Deletar extends HttpServlet {
+public class EmpresaStatus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +32,7 @@ public class Deletar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+ 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -64,55 +61,55 @@ public class Deletar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String acao = request.getParameter("acao");
+        processRequest(request, response);
         
+            String acao = request.getParameter("acao");
+
         switch (acao) {
-            
+
             case "eliminar":
-                eliminar_user(request, response);
+                eliminar_conta_empresa(request, response);
+                break;
                 
+                
+                  case "bloquear":
+                      bloquear_empresa(request, response);
                 break;
-            
-            case "bloquear":
-                bloquear_user(request, response);
-                break;
-            
-            default:
-                response.sendRedirect("Erro.jsp");
         }
     }
+
     
-    protected void eliminar_user(HttpServletRequest request, HttpServletResponse response)
+     protected void eliminar_conta_empresa(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
+
+        String id = request.getParameter("id");
+
+        EmpressaDao emp = new EmpressaDao();
         try {
-            processRequest(request, response);
-            String id = request.getParameter("id");
-            
-            UsuarioDao user = new UsuarioDao();
-            user.Eliminar_usuario(id);
-            response.sendRedirect("listarUsuarios.jsp");
+            emp.Eliminar_empresa(id);
         } catch (SQLException ex) {
-            Logger.getLogger(Deletar.class.getName()).log(Level.SEVERE, null, ex);
             response.sendRedirect("Erro.jsp");
+           
         }
     }
-    
-    protected void bloquear_user(HttpServletRequest request, HttpServletResponse response)
+     
+     
+      protected void bloquear_empresa(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
             String id = request.getParameter("id");
              String novoStatus = request.getParameter("novoStatus");
             
-            UsuarioDao user = new UsuarioDao();
-            user.status_usuario(novoStatus,id);
+            EmpressaDao enp = new EmpressaDao();
+            enp.status_empresa(novoStatus, id);
             response.sendRedirect("listarUsuarios.jsp");
         } catch (SQLException ex) {
-            Logger.getLogger(Deletar.class.getName()).log(Level.SEVERE, null, ex);
+          
             response.sendRedirect("Erro.jsp");
         }
     }
-
     /**
      * Returns a short description of the servlet.
      *

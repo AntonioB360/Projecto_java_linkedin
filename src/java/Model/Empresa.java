@@ -18,7 +18,21 @@ public class Empresa {
     private String sobre;
     private String logo;
     private String email;
+    private String status;
     private String senha;
+
+    public Empresa(int id, String nome, String setor, String localizacao, String webSite, String sobre, String logo, String email, String status, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.setor = setor;
+        this.localizacao = localizacao;
+        this.webSite = webSite;
+        this.sobre = sobre;
+        this.logo = logo;
+        this.email = email;
+        this.status = status;
+        this.senha = senha;
+    }
 
     public Empresa(int id, String nome, String setor, String localizacao, String webSite, String sobre, String logo, String email, String senha) {
         this.id = id;
@@ -32,6 +46,7 @@ public class Empresa {
         this.senha = senha;
     }
 
+    
     public int getId() {
         return id;
     }
@@ -96,6 +111,14 @@ public class Empresa {
         this.email = email;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -104,9 +127,7 @@ public class Empresa {
         this.senha = senha;
     }
 
-    
-    
-    
+   
     
     
 }

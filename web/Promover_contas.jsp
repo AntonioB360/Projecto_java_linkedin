@@ -171,6 +171,15 @@
     </style>
     </head>
     <body>
+        
+        
+        
+        
+         <form action="Deletar" method="post" id="eliminarField" class="hidden">
+                        <td><button type="submit" class="block">Eliminar conta</button></td>
+                        <input type="hidden" id="id" name="id" value="<%= u.getId()%>">
+                        <input type="hidden" id="id" name="acao" value="eliminar">
+                    </form>
          <!-- Seção Promover Contas -->
     <section id="promover" class="promote-accounts-section">
         <div class="card">

@@ -3,21 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/Vagas_cand.jsp</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/src/java/Controler/ListarUsuariosServlet.java</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/Restringir_premiun.jsp</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/Erro.jsp</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/src/java/Controler/Cadastro.java</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/src/java/Model/Dao/VagasDao.java</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/DashbordAdm.jsp</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/Feed.jsp</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/login.jsp</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/src/java/Model/Vagas_Emprego.java</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/Promover_contas.jsp</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/listarUsuarios.jsp</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/src/java/Model/Recomendacao_Habilidades.java</file>
+            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/src/java/Model/Dao/UsuarioDao.java</file>
-            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/web/Loginadm.jsp</file>
+            <file>file:/C:/Users/T/Documents/NetBeansProjects/Projecto_java_linkedin/src/java/Controller/LoginF.java</file>
         </group>
     </open-files>
 </project-private>

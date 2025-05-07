@@ -38,6 +38,12 @@
                     <span class="details">empresa</span>
                     <input type="text" name="empresa" placeholder="empresa que frequenta" required>
                 </div>
+                
+                   <div class="input-box">
+                    <span class="details">cargo</span>
+                    <input type="text" name="cargo" placeholder="cargo que frequenta" required>
+                </div>
+                
                 <div class="input-box">
                     <span class="details">Senha</span>
                     <input type="password"  placeholder="Digite uma senha" name="senha" required>
@@ -65,7 +71,7 @@
                     <div class="input-box">
                         <span class="details">Resumo</span>
                         <input type="text" id="resumo" name="resumo" required> <br>
-                        <input type="hidden" id="id" name="satus" value="activo">
+                        <input type="hidden" id="id" name="status" value="activo">
                 </div>
                     
                     <hr>

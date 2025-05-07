@@ -29,7 +29,7 @@
                 <a href="Loginadm.jsp"> <img src="img/linkedin.png"  width="60" height="50"></a>
             </div> 
         <!--    <h1>Acesso</h1>  -->
-        <form action="LoginF" method="post">
+        <form action="LoginStatus" method="post">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" placeholder="Digite seu e-mail" autocomplete="off">
                 <label for="password">Senha</label>

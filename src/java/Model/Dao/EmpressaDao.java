@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -48,7 +50,7 @@ public class EmpressaDao {
 
             if (rs.next()) {
                 
-                Empresa empresa = new Empresa(rs.getInt("id"),rs.getString("nome"),rs.getString("setor"),rs.getString("localizacao"),rs.getString("WebSite"),rs.getString("sobre"),rs.getString("logo"),rs.getString("email"),rs.getString("senha"));
+                Empresa empresa = new Empresa(rs.getInt("id"),rs.getString("nome"),rs.getString("setor"),rs.getString("localizacao"),rs.getString("WebSite"),rs.getString("sobre"),rs.getString("logo"),rs.getString("email"),rs.getString("status"),rs.getString("senha"));
     
                 // Preencha outros campos do objeto Usuario, se necessário
                 return empresa;
@@ -75,6 +77,55 @@ public class EmpressaDao {
     }
 }
 
-       
-       
+     
+     
+         public List<Empresa> listar_empresa() throws SQLException {
+            List<Empresa> listar= new ArrayList<>();
+            
+        String sql = "SELECT * FROM empresa";
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+        
+
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()) {
+                
+               listar.add(  new Empresa(rs.getInt("id"),rs.getString("nome"),rs.getString("setor"),rs.getString("localizacao"),rs.getString("WebSite"),rs.getString("sobre"),rs.getString("logo"),rs.getString("email"),rs.getString("status"),rs.getString("senha")));
+    
+            
+               
+            }
+            
+            
+        }
+        return listar;
+    }   
+     
+         
+           public void status_empresa( String status,String id) throws SQLException {
+
+        String sql = "update empresas set status=? where id=?";
+
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+
+             pst.setString(1, status);
+            pst.setString(2, id);
+           
+           
+            pst.executeUpdate();
+        }
+    }
+      
+           
+      public void Eliminar_empresa(String id) throws SQLException {
+
+        String sql = "delete from  empresa where id=?";
+
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+
+            pst.setString(1, id);
+           
+            pst.executeUpdate();
+        }
+    }
 }
