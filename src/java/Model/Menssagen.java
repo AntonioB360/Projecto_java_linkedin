@@ -13,6 +13,10 @@ public class Menssagen {
     private int id_remetente;
     private int id_destinatario;
     private String conteudo;
+    private Usuario usuario;
+    private String data_envio;
+    private Usuario remetente;
+    private Usuario destinatario;
 
     public Menssagen(int id_remetente, int id_destinatario, String conteudo) {
         this.id_remetente = id_remetente;
@@ -20,6 +24,10 @@ public class Menssagen {
         this.conteudo = conteudo;
     }
 
+    public Menssagen() {
+    }
+
+    
     public int getId_remetente() {
         return id_remetente;
     }
@@ -43,6 +51,40 @@ public class Menssagen {
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getData_envio() {
+        return data_envio;
+    }
+
+    public void setData_envio(String data_envio) {
+        this.data_envio = data_envio;
+    }
+
+    public void setRemetente(Usuario remetente) {
+        this.remetente = remetente;
+    }
+
+    public void setDestinatario(Usuario destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    public Usuario getRemetente() {
+        return remetente;
+    }
+
+    public Usuario getDestinatario() {
+        return destinatario;
+    }
+    
+    
     
     
     

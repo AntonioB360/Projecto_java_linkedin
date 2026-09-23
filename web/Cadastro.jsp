@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
-    <link rel="shortcut icon" href="icon/linkedin.png">
+   <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/cadastro.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,18 +30,24 @@
                     <span class="details">email</span>
                     <input type="email" placeholder="endereco de email" name="email" required>
                 </div>
+                
+                 <div class="input-box">
+                    <span class="details">Foto de perfil</span>
+                    <input type="file" id="idf"  accept="image/png,image/jpeg" name="foto"   multiple="multiple">
+                </div>
+                
                 <div class="input-box">
                     <span class="details">Localizacao</span>
                     <input type="text" name="localizacao" placeholder="localizacao" required>
                 </div>
                 <div class="input-box">
                     <span class="details">empresa</span>
-                    <input type="text" name="empresa" placeholder="empresa que frequenta" required>
+                    <input type="text" name="empresa" placeholder="empresa que frequenta" >
                 </div>
                 
                    <div class="input-box">
                     <span class="details">cargo</span>
-                    <input type="text" name="cargo" placeholder="cargo que frequenta" required>
+                    <input type="text" name="cargo" placeholder="cargo que frequenta" >
                 </div>
                 
                 <div class="input-box">

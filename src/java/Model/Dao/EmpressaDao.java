@@ -102,30 +102,37 @@ public class EmpressaDao {
     }   
      
          
-           public void status_empresa( String status,String id) throws SQLException {
+      public void status_empresa(String status, String id) throws SQLException {
+    String sql = "UPDATE empresa SET status = ? WHERE id = ?";
 
-        String sql = "update empresas set status=? where id=?";
+    try (Connection com = Conexao.getCom();
+         PreparedStatement pst = com.prepareStatement(sql)) {
 
-        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+        pst.setString(1, status);
+        pst.setString(2, id);
+        pst.executeUpdate();
 
-             pst.setString(1, status);
-            pst.setString(2, id);
-           
-           
-            pst.executeUpdate();
-        }
+    } catch (SQLException e) {
+        e.printStackTrace(); // Importante para saber o erro exato
+        throw e; // Repassa o erro para o Servlet
     }
+}
+
       
            
-      public void Eliminar_empresa(String id) throws SQLException {
+    public void Eliminar_empresa(String id) throws SQLException {
+    String sql = "DELETE FROM empresa WHERE id = ?"; // Corrigido de 'empresa' para 'empresas'
 
-        String sql = "delete from  empresa where id=?";
+    try (Connection com = Conexao.getCom();
+         PreparedStatement pst = com.prepareStatement(sql)) {
 
-        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+        pst.setString(1, id);
+        pst.executeUpdate();
 
-            pst.setString(1, id);
-           
-            pst.executeUpdate();
-        }
+    } catch (SQLException e) {
+        e.printStackTrace(); // Loga o erro no console
+        throw e; // Permite que o servlet redirecione corretamente para Erro.jsp
     }
+}
+
 }

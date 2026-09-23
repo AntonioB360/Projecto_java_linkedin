@@ -10,13 +10,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erro 404</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
      <link rel="stylesheet" href="css/Erro.css"/>
 </head>
 <body>
     <div class="container">
         <h1>Erro 404</h1>
         <p>A página que você está procurando não foi encontrada.</p>
-        <a href="Home.jsp">Voltar para a página inicial</a>
+        <a href="login.jsp">Voltar para a página inicial</a>
     </div>
 </body>
 </html>

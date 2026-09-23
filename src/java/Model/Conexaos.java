@@ -8,15 +8,19 @@ package Model;
  *
  * @author us
  */
-public class Conexao {
+public class Conexaos {
     private int usuario1_id;
     private int usuario2_id;
     private String status;
+    private Usuario usuario;
 
-    public Conexao(int usuario1_id, int usuario2_id, String status) {
+    public Conexaos(int usuario1_id, int usuario2_id, String status) {
         this.usuario1_id = usuario1_id;
         this.usuario2_id = usuario2_id;
         this.status = status;
+    }
+
+    public Conexaos() {
     }
 
     public int getUsuario1_id() {
@@ -42,8 +46,14 @@ public class Conexao {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
-    
-    
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+  
 }

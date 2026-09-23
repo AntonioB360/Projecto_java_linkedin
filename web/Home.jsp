@@ -22,6 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Painel corporativo para gerenciamento de projetos e equipes">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <title><%=empresa.getNome()%> | Painel Corporativo</title>
     
     <link rel="stylesheet" href="css/Emp.css"/>
@@ -35,7 +36,8 @@
                     <a href="PerfilEmpresa.jsp" class="nav-link">Perfil</a>
                     <a href="/projetos" class="nav-link">Projetos</a>
                     <a href="Vagas.jsp" class="nav-link">Publicar Vagas</a>
-                    <a href="/usuarios" class="nav-link">Usuários</a>
+                    <a href="Empressas_visualizar_Vagas.jsp" class="nav-link">Vagas publicadas</a>
+           
                     <a href="Logout" class="nav-link">Sair</a>
                 </nav>
             </div>

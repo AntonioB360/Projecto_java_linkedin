@@ -1,7 +1,7 @@
 <%-- 
     Document   : Publicacao
     Created on : 01/04/2025, 11:57:07
-    Author     : us
+    Author     : [Seu Nome ou Nome da Empresa]
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,74 +18,76 @@
 %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicação</title>
-    <link rel="stylesheet" href="css/post.css"/>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Criar Publicação </title>
+        <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="css/post.css">
+        <link rel="stylesheet" href="css/global.css">
+        <style>
+        </style>
+    </head>
 
-<body>
-    <main>
-        <!-- Informações do usuário -->
-        <div class="user-info">
-            <img src="<%=usuario.getFoto_perfil() %>" alt="Foto de perfil">
-            <h3><%=usuario.getNome() %></h3>
+    <body>
+        <div class="container">
+            <!-- Cabeçalho -->
+            <header class="main-header">
+                <h1><i class="fas fa-pen-alt"></i> Criar Nova Publicação</h1>
+                <a href="Feed.jsp" class="back-link"><i class="fas fa-arrow-left"></i> Voltar ao Feed</a>
+            </header>
+
+            <main class="publication-container">
+                <!-- Informações do usuário -->
+                <div class="user-card">
+                    <div class="user-avatar">
+                        <img src="<%=usuario.getFoto_perfil()%>" alt="Foto de perfil de <%=usuario.getNome()%>" class="profile-pic">
+                    </div>
+                    <div class="user-details">
+                        <h3><%=usuario.getNome()%></h3>
+                        <span class="post-time">Agora</span>
+                    </div>
+                </div>
+
+                <!-- Formulário de publicação -->
+                <form class="publication-form" id="postForm" action="Postagem" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id_usuario" value="<%=usuario.getId()%>">
+
+                    <div class="form-group">
+                        <textarea name="conteudo" id="conteudo" placeholder="Compartilhe seus pensamentos..." rows="5"></textarea>
+                        <div class="char-counter"><span id="charCount">0</span>/500</div>
+                    </div>
+
+                    <div class="preview-container" id="previewContainer" style="display:none;">
+                        <div class="preview-header">
+                            <h4>Pré-visualização</h4>
+                            <button type="button" class="btn-close" id="removeImage"><i class="fas fa-times"></i></button>
+                        </div>
+                        <img id="preview" src="#" alt="Pré-visualização da imagem" class="preview-image">
+                    </div>
+
+                    <div class="form-actions">
+                        <div class="attachment-options">
+                            <label for="foto" class="btn-attachment">
+                                <i class="fas fa-image"></i> Adicionar Imagem
+                                <input type="file" name="foto" id="foto" accept="image/png,image/jpeg,image/gif">
+                            </label>
+                        </div>
+
+                        <input type="hidden" id="id" name="acao" value="postar">
+                        <button type="submit" class="btn-publish">
+                            <i class="fas fa-paper-plane"></i> Publicar
+                        </button>
+                    </div>
+                </form>
+            </main>
         </div>
 
-        <!-- Formulário de publicação -->
-        <form class="post-form" id="postForm" action="Postagem" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id_usuario" value="<%=usuario.getId() %>">
-            <textarea name="conteudo" id="conteudo" placeholder="No que você está pensando?"></textarea>
-            <label for="foto" class="upload-label">Anexar foto</label>
-            <input type="file" name="foto" accept="image/png,image/jpeg">
-            
-            <div class="preview-container">
-                <img id="preview" src="#" alt="pre-visualizacao da foto"/>
-            </div>
-            <input type="submit" value="Publicar">
-        </form>
-    </main>
+        <script src="javascript/Post.js">
 
-    <script>
-        // Captura o formulário
-        const postForm = document.getElementById('postForm');
-
-        // Adiciona um evento de envio ao formulário
-        postForm.addEventListener('submit', function (event) {
-            // Previne o envio padrão do formulário para simular a verificação
-            event.preventDefault();
-
-            // Verifica se o campo de texto está vazio
-            const conteudo = document.getElementById('conteudo').value.trim();
-            if (conteudo === '') {
-                alert('Por favor, escreva algo antes de publicar.');
-                return;
-            }
-
-            // Simula o envio do formulário e exibe uma mensagem de sucesso
-            alert('Publicação realizada com sucesso!');
-            postForm.submit(); // Envia o formulário após a verificação
-            
-            
-        });
-        
-        function mostrarPreview(){
-                const file=document.getElementById("preview");
-                
-                if(file){
-                    const reader=new FileReader();
-                    reader.onload=function(e){
-                        preview.src=e.target.result;
-                        preview.style.display="block";
-                    };
-                    
-                    reader.readAsDataURL(file);
-                }
-            }
-    </script>
-</body>
-
+        </script>
+    </body>
 </html>

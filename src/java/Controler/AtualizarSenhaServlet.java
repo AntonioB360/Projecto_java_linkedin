@@ -4,12 +4,11 @@
  */
 package Controler;
 
-import Model.Dao.EmpressaDao;
+import Model.Dao.CredenciasDao;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.System.Logger.Level;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author T
  */
-public class EmpresaStatus extends HttpServlet {
+@WebServlet(name = "AtualizarSenhaServlet", urlPatterns = {"/AtualizarSenhaServlet"})
+public class AtualizarSenhaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +32,7 @@ public class EmpresaStatus extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
- 
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,53 +63,21 @@ public class EmpresaStatus extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-            String acao = request.getParameter("acao");
-
-        switch (acao) {
-
-            case "eliminar":
-                eliminar_conta_empresa(request, response);
-                break;
-                
-                
-                  case "bloquear":
-                      bloquear_empresa(request, response);
-                break;
+        String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
+        String confirmar = request.getParameter("confirmar");
+        
+        if (senha.equals(confirmar)) {
+            CredenciasDao dao = new CredenciasDao();
+            dao.atualizarSenha(email, senha);
+            response.sendRedirect("login.jsp?msg=senhaAtualizada");
+        } else {
+            request.setAttribute("erro", "As senhas não coincidem.");
+            request.getRequestDispatcher("novaSenha.jsp").forward(request, response);
         }
-    }
-
     
-     protected void eliminar_conta_empresa(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-
-        String id = request.getParameter("id");
-
-        EmpressaDao emp = new EmpressaDao();
-        try {
-            emp.Eliminar_empresa(id);
-        } catch (SQLException ex) {
-            response.sendRedirect("Erro.jsp");
-           
-        }
     }
-     
-     
-      protected void bloquear_empresa(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-            String id = request.getParameter("id");
-             String novoStatus = request.getParameter("novoStatus");
-            
-            EmpressaDao enp = new EmpressaDao();
-            enp.status_empresa(novoStatus, id);
-            response.sendRedirect("listarUsuarios.jsp");
-        } catch (SQLException ex) {
-          
-            response.sendRedirect("Erro.jsp");
-        }
-    }
+
     /**
      * Returns a short description of the servlet.
      *

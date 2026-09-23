@@ -1,0 +1,414 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 17/05/2025, 23:59:04
+    Author     : T
+*/
+
+ :root {
+            --primary-color: #0077b5;
+            --secondary-color: #f3f6f8;
+            --text-color: #000000e6;
+            --light-text: #666666;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            display: flex;
+            height: 100vh;
+        }
+        
+        /* Barra lateral de conversas */
+        .conversations-sidebar {
+            width: 350px;
+            background-color: var(--white);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .sidebar-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .new-message-btn {
+            background-color: transparent;
+            border: none;
+            color: var(--primary-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .search-bar {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .conversation-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .conversation-item {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .conversation-item:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .conversation-item.active {
+            background-color: #e6f0f8;
+        }
+        
+        .conversation-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        
+        .conversation-name {
+            font-weight: 600;
+        }
+        
+        .conversation-time {
+            font-size: 12px;
+            color: var(--light-text);
+        }
+        
+        .conversation-preview {
+            font-size: 14px;
+            color: var(--light-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Área principal de mensagens */
+        .messages-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .messages-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            background-color: var(--white);
+        }
+        
+        .recipient-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .recipient-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+        
+        .recipient-name {
+            font-weight: 600;
+        }
+        
+        .header-actions {
+            margin-left: auto;
+            display: flex;
+            gap: 16px;
+        }
+        
+        .header-actions button {
+            background: none;
+            border: none;
+            color: var(--light-text);
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .messages-area {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            background-color: var(--white);
+        }
+        
+        .message {
+            max-width: 70%;
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .received {
+            background-color: var(--secondary-color);
+            margin-right: auto;
+        }
+        
+        .sent {
+            background-color: var(--primary-color);
+            color: white;
+            margin-left: auto;
+        }
+        
+        .message-time {
+            font-size: 11px;
+            color: var(--light-text);
+            text-align: right;
+            margin-top: 4px;
+        }
+        
+        .sent .message-time {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .message-file {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        
+        .file-icon {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .file-info {
+            flex: 1;
+        }
+        
+        .file-name {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        
+        .file-size {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        /* Área de composição de mensagem */
+        .message-composer {
+            padding: 16px;
+            background-color: var(--white);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .composer-toolbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .composer-toolbar button {
+            background: none;
+            border: none;
+            color: var(--light-text);
+            cursor: pointer;
+            font-size: 20px;
+            transition: color 0.2s;
+        }
+        
+        .composer-toolbar button:hover {
+            color: var(--primary-color);
+        }
+        
+        .message-input {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 12px 16px;
+            resize: none;
+            font-size: 14px;
+            min-height: 60px;
+            margin-bottom: 12px;
+        }
+        
+        .send-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            float: right;
+        }
+        
+        /* Estilos para mensagens de áudio */
+        .audio-message {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        
+        .audio-controls {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .audio-play-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        
+        .audio-progress {
+            flex: 1;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            margin-right: 8px;
+            position: relative;
+        }
+        
+        .audio-progress-filled {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 30%;
+            background-color: currentColor;
+            border-radius: 2px;
+        }
+        
+        .audio-duration {
+            font-size: 12px;
+        }
+        
+        /* Estilos para mensagens de imagem */
+        .message-image {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 4px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+        
+        /* Modal para visualização de imagem */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-image {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        /* Estilo para o gravador de áudio */
+        .audio-recorder {
+            display: none;
+            padding: 16px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .recorder-controls {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        
+        .recorder-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .start-recording {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        
+        .stop-recording {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .recording-timer {
+            font-size: 14px;
+            margin-top: 8px;
+            color: var(--light-text);
+        }
+        
+        /* Input de arquivo oculto */
+        .file-input {
+            display: none;
+        }

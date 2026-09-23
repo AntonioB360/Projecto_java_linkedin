@@ -10,12 +10,23 @@ package Model;
  */
 public class Curtidas {
     
+    private int id;
     private int id_postagem;
     private int id_usuario;
+    
 
-    public Curtidas(int id_postagem, int id_usuario) {
+    public Curtidas(int id, int id_postagem, int id_usuario) {
+        this.id = id;
         this.id_postagem = id_postagem;
         this.id_usuario = id_usuario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId_postagem() {
@@ -33,7 +44,7 @@ public class Curtidas {
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
-    
+
     
     
 }

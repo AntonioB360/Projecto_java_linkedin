@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Painel Administrativo</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link rel="shortcut icon" href="img/linkedin1.png">
+        <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
         <style>
             /* Estilos Gerais */
             body {
@@ -187,10 +187,7 @@
         </header>
 
         <!-- Área de Pesquisa -->
-        <div class="search-container">
-            <input type="text" placeholder="Pesquisar usuário por nome ou email...">
-            <button class="search">Pesquisar</button>
-        </div>
+        
         <!-- Navegação -->
         <nav>
             <a class="k" href="">Verificar dados</a>
@@ -202,33 +199,14 @@
 
             <a href="Promover_contas.jsp">Promover Contas</a>
             <a href="Restringir_premiun.jsp">Restringir ao Premium</a>
-            <a href="Publicar_feed.jsp">Publicar no Feed</a>
+            <a href="Publicacao.jsp">Publicar no Feed</a>
               <a href="Logout">Terminar sessao</a>
         </nav>
 
 
         <!-- Script JavaScript -->
         <script>
-            function bloquearUsuario(nome) {
-                alert(`Usuário ${nome} bloqueado com sucesso!`);
-            }
-
-            function promoverUsuario(nome) {
-                alert(`Usuário ${nome} promovido com sucesso!`);
-            }
-
-            function restringirAcesso(nome) {
-                alert(`Acesso ao Premium foi restringido para o usuário ${nome}!`);
-            }
-
-            function publicarNoticia() {
-                const content = document.getElementById('newsContent').value;
-                if (content) {
-                    alert(`Notícia publicada com sucesso: "${content}"`);
-                } else {
-                    alert('Por favor, digite uma notícia antes de publicar.');
-                }
-            }
+            
             
             
             // Seleciona o link e o elemento que será mostrado/ocultado

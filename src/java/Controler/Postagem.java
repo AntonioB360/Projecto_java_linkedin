@@ -4,7 +4,12 @@
  */
 package Controler;
 
+import Model.Comentario;
+import Model.Curtidas;
+import Model.Dao.ComentarioDao;
+import Model.Dao.NotificacaoDao;
 import Model.Dao.PostagemDao;
+import Model.Notificacoes;
 import Model.Postagens;
 import Model.Usuario;
 import java.io.File;
@@ -12,6 +17,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,11 +33,13 @@ import javax.servlet.http.Part;
  *
  * @author us
  */
-@WebServlet("/Postagem")
+
 
 @MultipartConfig(fileSizeThreshold = 1024*1024*1,
         maxFileSize =1024*1024*10,
         maxRequestSize = 1024*1024*100)
+
+@WebServlet("/Postagem")
 public class Postagem extends HttpServlet {
 private static final String UPLOAD_DIR = "uploads"; 
     /**
@@ -61,7 +69,12 @@ private static final String UPLOAD_DIR = "uploads";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+  
+           
+           
+  
         }
+
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -74,11 +87,45 @@ private static final String UPLOAD_DIR = "uploads";
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       try{ 
+       
+        processRequest(request, response);
+        
+               String acao = request.getParameter("acao");
+
+        switch (acao) {
+
+            case "postar":
+                realizar_postagen(request, response);
+                break;
+                
+                
+                case "comentar":
+                    realizar_comentario(request, response);
+                break;
+                
+                case "curtir":
+                    realizar_curtida(request, response);
+                break;
+                
+                 case "eliminar":
+                     Eliminarpost(request, response);
+                break;
+                
+               
+        } 
+            
+        }
+        
+    
+    
+    
+    protected void realizar_postagen(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       
         processRequest(request, response);
         
         
-        
+        try{ 
             
             int id=Integer.parseInt(request.getParameter("id_usuario"));
             String conteudo=request.getParameter("conteudo");
@@ -108,7 +155,7 @@ if (filePart != null && filePart.getSize() > 0 && filePart.getSubmittedFileName(
         PostagemDao post=new PostagemDao();
         Postagens postar=new Postagens(0,id, conteudo, relativePath);
         post.cadastrar_usuario(postar);
-
+          response.sendRedirect("Feed.jsp");
     }catch(SQLException e){
         e.printStackTrace();
         response.sendRedirect("Erro.jsp");
@@ -116,8 +163,90 @@ if (filePart != null && filePart.getSize() > 0 && filePart.getSubmittedFileName(
        
             
         }
-        
 
+    
+    
+    
+    protected void realizar_comentario(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+    processRequest(request, response);
+
+    String conteudo = request.getParameter("comentario");
+ 
+    int id_postagem = Integer.parseInt(request.getParameter("idPostagem"));
+    int id_usuario = Integer.parseInt(request.getParameter("idUsuario"));
+    int id_remetente = Integer.parseInt(request.getParameter("id_remetente"));
+    
+    Comentario cm = new Comentario(0, id_postagem, id_usuario, conteudo);
+    ComentarioDao cd = new ComentarioDao();
+  
+    NotificacaoDao nd=new NotificacaoDao();
+
+    try {
+       int idComentarioGerado = cd.comentar(cm);
+      Notificacoes nt = new Notificacoes(0, id_usuario, id_remetente, "comentario", idComentarioGerado);
+
+        nd.registrar_notificacao(nt);
+        // CORREÇÃO AQUI
+        response.sendRedirect("Pagina_Publicacao.jsp?id=" + id_postagem);
+    } catch (SQLException ex) {
+        Logger.getLogger(Postagem.class.getName()).log(Level.SEVERE, null, ex);
+        response.sendRedirect("Erro.jsp");
+    }
+}
+
+    
+    
+    protected void realizar_curtida(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+    processRequest(request, response);
+
+  
+
+    try {
+        
+     
+    int id_postagem = Integer.parseInt(request.getParameter("idPostagem"));
+    int id_usuario = Integer.parseInt(request.getParameter("idUsuario"));
+   
+
+      Curtidas cr=new Curtidas(0, id_postagem, id_usuario);
+        PostagemDao p = new PostagemDao();
+      p.curtir_postagem(cr);
+      
+        response.sendRedirect("Feed.jsp?");
+    } catch (SQLException ex) {
+        Logger.getLogger(Postagem.class.getName()).log(Level.SEVERE, null, ex);
+        response.sendRedirect("Feed.jsp");
+    }
+}
+        protected void Eliminarpost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+    processRequest(request, response);
+
+  
+
+    try {
+        
+     
+    int id_postagem = Integer.parseInt(request.getParameter("idPostagem"));
+    int id_usuario = Integer.parseInt(request.getParameter("idUsuario"));
+   
+
+      
+        PostagemDao p = new PostagemDao();
+      p.eliminarPostagem(id_postagem, id_usuario);
+      
+        response.sendRedirect("Feed.jsp");
+    } catch (SQLException ex) {
+        Logger.getLogger(Postagem.class.getName()).log(Level.SEVERE, null, ex);
+        response.sendRedirect("Erro.jsp");
+    }
+}
+    
     /**
      * Returns a short description of the servlet.
      *

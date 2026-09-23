@@ -61,6 +61,29 @@ public class VagasDao {
         
     }
         
+        
+         public List<Vagas_Emprego> Listar_vagas_empresa(int id) throws SQLException {
+        List<Vagas_Emprego> listar=new ArrayList<>();
+        String sql = "SELECT *FROM vagas where empresa_id=?";
+        try (Connection com = Conexao.getCom(); PreparedStatement pst = com.prepareStatement(sql)) {
+        
+            pst.setInt(1, id);
+
+            ResultSet rs = pst.executeQuery();
+
+               while(rs.next()){
+                   
+                
+               listar.add(new Vagas_Emprego(rs.getInt("id"),rs.getString("titulo"),rs.getString("empresa"),rs.getString("localizacao"),rs.getString("descricao"),rs.getDouble("salario"),rs.getString("Benefícios"),rs.getString("experiencia")));
+
+    
+                 
+            }
+        }return listar; 
+          
+        
+    }
+        
             public List<Vagas_Emprego> buscarVagas(String searchQuery) throws SQLException {
     List<Vagas_Emprego> listar = new ArrayList<>();
     String sql = "SELECT * FROM vagas WHERE nome LIKE ? OR email LIKE ?";
@@ -84,4 +107,17 @@ public class VagasDao {
           
         
     }
+            
+     public void eliminar_vaga(String id) throws SQLException{
+         
+         String sql="delete from vagas where id=?";
+         
+         try(Connection com=Conexao.getCom(); PreparedStatement pst=com.prepareStatement(sql)){
+             
+             pst.setString(1, id);
+             
+             pst.executeUpdate();
+         }
+     }       
+            
 }

@@ -8,14 +8,31 @@ package Model;
  *
  * @author us
  */
-public class Canidatura {
+public class Candidatura {
    
+    private int id;
     private int id_usuario;
     private int id_vaga;
+    private Usuario usuario;
+    private String status;
 
-    public Canidatura(int id_usuario, int id_vaga) {
+    public Candidatura(int id, int id_usuario, int id_vaga) {
+        this.id = id;
         this.id_usuario = id_usuario;
         this.id_vaga = id_vaga;
+    }
+
+    public Candidatura() {
+    }
+
+    
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId_usuario() {
@@ -33,7 +50,24 @@ public class Canidatura {
     public void setId_vaga(int id_vaga) {
         this.id_vaga = id_vaga;
     }
-    
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+   
     
     
     

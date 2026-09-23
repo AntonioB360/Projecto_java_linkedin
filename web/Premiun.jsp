@@ -444,13 +444,9 @@
       <div class="logo">GLAMVC</div>
       <nav>
         <ul>
-          <li><a href="#inicio">Início</a></li>
+
           <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#premium">Premium</a></li>
-          <li><a href="#vagas">Vagas</a></li>
-          <li><a href="#mensagens">Mensagens</a></li>
-          <li><a href="#minharede">Minha Rede</a></li>
-          <li><a href="#notificacoes">Notificações</a></li>
+     
           <li><a href="#cobranca">Cobrança e Segurança</a></li>
         </ul>
       </nav>
@@ -584,7 +580,7 @@
             <td>Avançadas</td>
           </tr>
         </table>
-      </div>
+      
     </section>
     
     <!-- 3. SEÇÃO PREMIUM – ASSINATURA E PAGAMENTO -->
@@ -605,139 +601,13 @@
         <!-- Formulário de Assinatura e Pagamento -->
         <div id="subscription-form">
           <h2>Formulário de Assinatura e Pagamento</h2>
-          <form id="formAssinatura">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <p>Selecione o método de pagamento:</p>
-            <input type="radio" name="payment-method" value="credit" id="paymentCredit" checked>
-            <label for="paymentCredit">Cartão de Crédito</label>
-            <input type="radio" name="payment-method" value="paypal" id="paymentPaypal">
-            <label for="paymentPaypal">PayPal</label>
-            <input type="radio" name="payment-method" value="boleto" id="paymentBoleto">
-            <label for="paymentBoleto">Boleto</label>
-            
-            <!-- Campos de Cartão de Crédito -->
-            <div id="credit-card-details">
-              <label for="card-number">Número do Cartão:</label>
-              <input type="text" id="card-number" name="card-number" maxlength="16" required>
-              
-              <label for="expiry">Data de Expiração (MM/AA):</label>
-              <input type="text" id="expiry" name="expiry" maxlength="5" required>
-              
-              <label for="cvv">CVV:</label>
-              <input type="text" id="cvv" name="cvv" maxlength="3" required>
-            </div>
-            
-            <button type="submit">Confirmar Assinatura e Pagamento</button>
-          </form>
-        </div>
+          
+          <h3 style="color: red">Lamentamos de momento o servico Premiun nao esta disponivel</h3>
+                  </div>
       </div>
     </section>
     
-    <!-- 4. SEÇÃO VAGAS -->
-    <section id="vagas">
-      <div class="jobs-content">
-        <h1>Vagas Disponíveis</h1>
-        <div class="job" data-job="Desenvolvedor Full Stack">
-          <div>
-            <h3>Desenvolvedor Full Stack</h3>
-            <p>Empresa: Tech Solutions</p>
-          </div>
-          <button class="btnCandidatar">Candidatar-se</button>
-        </div>
-        <div class="job" data-job="Designer Gráfico">
-          <div>
-            <h3>Designer Gráfico</h3>
-            <p>Empresa: Creative Studio</p>
-          </div>
-          <button class="btnCandidatar">Candidatar-se</button>
-        </div>
-      </div>
-    </section>
-    
-    <!-- 5. SEÇÃO MENSAGENS -->
-    <section id="mensagens">
-      <div class="messages-content">
-        <h1>Mensagens</h1>
-        <div class="message-container" id="messageContainer">
-          <div class="message"><strong>João:</strong> Olá, tudo bem?</div>
-          <div class="message"><strong>Você:</strong> Tudo ótimo, e você?</div>
-        </div>
-        <div class="input-container">
-          <input type="text" id="messageInput" placeholder="Digite sua mensagem...">
-          <button id="btnEnviar">Enviar</button>
-        </div>
-      </div>
-    </section>
-    
-    <!-- 6. SEÇÃO MINHA REDE -->
-    <section id="minharede">
-      <div class="network-content">
-        <h1>Minha Rede</h1>
-        <div class="connection">
-          <p><strong>Maria Silva</strong> - Designer Gráfico</p>
-          <button class="btnConectar">Conectar</button>
-        </div>
-        <div class="connection">
-          <p><strong>Pedro Santos</strong> - Desenvolvedor Web</p>
-          <button class="btnConectar">Conectar</button>
-        </div>
-        <div class="connection">
-          <p><strong>Ana Costa</strong> - Especialista em Marketing</p>
-          <button class="btnConectar">Conectar</button>
-        </div>
-      </div>
-    </section>
-    
-    <!-- 7. SEÇÃO NOTIFICAÇÕES -->
-    <section id="notificacoes">
-      <div class="notification-content">
-        <h1>Notificações</h1>
-        <div class="notification">
-          <span class="notification-close">&times;</span>
-          <p><strong>Mensagem:</strong> João enviou uma nova mensagem para você.</p>
-        </div>
-        <div class="notification">
-          <span class="notification-close">&times;</span>
-          <p><strong>Rede:</strong> Maria aceitou sua solicitação de conexão.</p>
-        </div>
-        <div class="notification">
-          <span class="notification-close">&times;</span>
-          <p><strong>Vagas:</strong> Nova oportunidade: Desenvolvedor Front-end.</p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- 8. SEÇÃO COBRANÇA E SEGURANÇA -->
-    <section id="cobranca">
-      <div class="cobranca-content">
-        <h1>Processo de Cobrança e Segurança</h1>
-        <ul>
-          <li>O GLAMVC Premium aceita métodos como Cartões de Crédito, PayPal e, dependendo da região, Boleto Bancário.</li>
-          <li>Oferece planos mensais e anuais (entre outras variações) para atender às necessidades de diferentes usuários.</li>
-          <li>Transações são protegidas por criptografia SSL/TLS e integradas a gateways de pagamento confiáveis, garantindo a segurança e a integridade dos dados financeiros dos assinantes.</li>
-        </ul>
-        <p>Esta solução serve como uma simulação interativa da versão Premium do GLAMVC, integrando todas as seções e funcionalidades em uma única página. Sinta-se à vontade para ajustar os detalhes.</p>
-      </div>
-    </section>
-  </main>
-  
-  <!-- MODAL PARA CANDIDATURA A VAGA -->
-  <div id="modalJob" class="modal">
-    <div class="modal-content">
-      <span class="modal-close">&times;</span>
-      <h2 id="jobTitleModal">Candidatura para Vaga</h2>
-      <p>Você está se candidatando para a vaga de <strong id="jobNameModal"></strong>. Deseja confirmar sua candidatura?</p>
-      <div style="text-align:right; margin-top:20px;">
-        <button id="btnCancelar" style="background:#ccc; color:#333; padding:8px 15px; border:none; border-radius:5px; margin-right:10px; cursor:pointer;">Cancelar</button>
-        <button id="btnConfirmar" style="background:#0073b1; color:#fff; padding:8px 15px; border:none; border-radius:5px; cursor:pointer;">Confirmar</button>
-      </div>
-    </div>
-  </div>
+
   
   <!-- RODAPÉ -->
   <footer>
@@ -751,114 +621,8 @@
   </footer>
   
   <!-- SCRIPTS DE FUNCIONALIDADES -->
-  <script>
-    /* MODAL DE CANDIDATURA – VAGAS */
-    const btnCandidatar = document.querySelectorAll(".btnCandidatar");
-    const modalJob = document.getElementById("modalJob");
-    const modalClose = document.querySelector(".modal-close");
-    const jobNameModal = document.getElementById("jobNameModal");
-    const jobTitleModal = document.getElementById("jobTitleModal");
-    const btnCancelar = document.getElementById("btnCancelar");
-    const btnConfirmar = document.getElementById("btnConfirmar");
-
-    btnCandidatar.forEach(function(button) {
-      button.addEventListener("click", function(e) {
-        const jobCard = e.target.closest(".job");
-        const jobName = jobCard.getAttribute("data-job");
-        jobNameModal.textContent = jobName;
-        jobTitleModal.textContent = "Candidatura para " + jobName;
-        modalJob.style.display = "flex";
-      });
-    });
-
-    modalClose.addEventListener("click", function() {
-      modalJob.style.display = "none";
-    });
-    btnCancelar.addEventListener("click", function() {
-      modalJob.style.display = "none";
-    });
-    btnConfirmar.addEventListener("click", function() {
-      alert("Candidatura para " + jobNameModal.textContent + " enviada!");
-      modalJob.style.display = "none";
-    });
-    window.addEventListener("click", function(e) {
-      if (e.target === modalJob) {
-        modalJob.style.display = "none";
-      }
-    });
-    
-    /* FORMULÁRIO DE ASSINATURA E PAGAMENTO (SEÇÃO PREMIUM) */
-    document.getElementById("formAssinatura").addEventListener("submit", function(e){
-      e.preventDefault();
-      const nome = document.getElementById("nome").value;
-      const email = document.getElementById("email").value;
-      // Neste exemplo, assume-se a validação dos campos de pagamento se aplicável.
-      alert("Obrigado, " + nome + "! Sua assinatura com o email " + email + " foi confirmada e o pagamento processado com sucesso.");
-      document.getElementById("subscription-form").style.display = "none";
-      this.reset();
-    });
-    
-    /* Alterna exibição dos detalhes do Cartão conforme método de pagamento */
-    document.querySelectorAll('input[name="payment-method"]').forEach((elem) => {
-      elem.addEventListener("change", function(e) {
-         const selected = document.querySelector('input[name="payment-method"]:checked').value;
-         const creditDetails = document.getElementById("credit-card-details");
-         if(selected === "credit"){
-            creditDetails.style.display = "block";
-            document.getElementById("card-number").required = true;
-            document.getElementById("expiry").required = true;
-            document.getElementById("cvv").required = true;
-         } else {
-            creditDetails.style.display = "none";
-            document.getElementById("card-number").required = false;
-            document.getElementById("expiry").required = false;
-            document.getElementById("cvv").required = false;
-         }
-      });
-    });
-    
-    /* ÁREA DE MENSAGENS */
-    document.getElementById("btnEnviar").addEventListener("click", function(){
-      const input = document.getElementById("messageInput");
-      const container = document.getElementById("messageContainer");
-      if(input.value.trim() !== ""){
-        const newMessage = document.createElement("div");
-        newMessage.classList.add("message");
-        newMessage.innerHTML = "<strong>Você:</strong> " + input.value;
-        container.appendChild(newMessage);
-        input.value = "";
-        container.scrollTop = container.scrollHeight;
-        // Simula resposta automática após 1 segundo
-        setTimeout(() => {
-          const reply = document.createElement("div");
-          reply.classList.add("message");
-          reply.innerHTML = "<strong>ChatBot:</strong> Obrigado por sua mensagem!";
-          container.appendChild(reply);
-          container.scrollTop = container.scrollHeight;
-        }, 1000);
-      } else {
-        alert("Digite uma mensagem antes de enviar!");
-      }
-    });
-    
-    /* BOTÕES "CONECTAR" NA SEÇÃO MINHA REDE */
-    const conectarButtons = document.querySelectorAll(".btnConectar");
-    conectarButtons.forEach(button => {
-      button.addEventListener("click", function() {
-        button.textContent = "Conectado";
-        button.disabled = true;
-      });
-    });
-    
-    /* NOTIFICAÇÕES: FECHAR AO CLICAR NO "×" */
-    const closeButtons = document.querySelectorAll(".notification-close");
-    closeButtons.forEach(btn => {
-      btn.addEventListener("click", function(){
-        const notif = this.parentElement;
-        notif.style.opacity = "0";
-        setTimeout(() => { notif.remove(); }, 300);
-      });
-    });
+  <script src="javascript/Premiun.js">
+   
   </script>
 </body>
 </html>

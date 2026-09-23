@@ -12,7 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Empresa - Professional Network</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <title>Cadastro de Empresa</title>
     <link rel="stylesheet" href="css/Empresa.css">
 </head>
 <body>

@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Admin Social</title>
     <link rel="stylesheet" href="css/Adm.css">
-    <link rel="shortcut icon" href="img/linkedin1.png">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
@@ -35,7 +35,7 @@
                 <button  type="submit" class="btn">Entrar</button>
             </form>
             <div class="footer-links">
-                <a href="#">Esqueceu a senha?</a>
+                <a href="Recuperar_credencias.jsp">Esqueceu a senha?</a>
             </div>
         </div>
     </div>

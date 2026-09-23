@@ -25,6 +25,7 @@
 <html>
     <head>
         <title>Usuários</title>
+        <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
         <style>
             body {
                 font-family: 'Roboto', sans-serif;

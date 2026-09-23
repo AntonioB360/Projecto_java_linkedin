@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                               http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!-- SERVLETS -->
     <servlet>
         <servlet-name>Cadastro</servlet-name>
         <servlet-class>Controler.Cadastro</servlet-class>
@@ -17,20 +18,12 @@
         <servlet-class>Controler.Logout</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Postagem</servlet-name>
-        <servlet-class>Controler.Postagem</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>FeedServlet</servlet-name>
         <servlet-class>Controler.FeedServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastroEmpresa</servlet-name>
         <servlet-class>Controler.CadastroEmpresa</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Vaga</servlet-name>
-        <servlet-class>Controler.Vaga</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserServelet</servlet-name>
@@ -53,12 +46,21 @@
         <servlet-class>Controler.Empresa</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EmpresaStatus</servlet-name>
-        <servlet-class>Controler.EmpresaStatus</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginStatus</servlet-name>
         <servlet-class>Controler.LoginStatus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Empressa_Vagas</servlet-name>
+        <servlet-class>Controler.Empressa_Vagas</servlet-class>
+    </servlet>
+    <!-- MAPEAMENTOS -->
+    <servlet>
+        <servlet-name>Empresa_Acoes</servlet-name>
+        <servlet-class>Controler.Empresa_Acoes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Candidatura_Status</servlet-name>
+        <servlet-class>Controler.Candidatura_Status</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Cadastro</servlet-name>
@@ -77,20 +79,12 @@
         <url-pattern>/Controler/Logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Postagem</servlet-name>
-        <url-pattern>/Controler/Postagem</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>FeedServlet</servlet-name>
         <url-pattern>/FeedServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastroEmpresa</servlet-name>
         <url-pattern>/Controler/CadastroEmpresa</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Vaga</servlet-name>
-        <url-pattern>/Vaga</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserServelet</servlet-name>
@@ -101,6 +95,10 @@
         <url-pattern>/Controler/Deletar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Pesquisar</servlet-name>
+        <url-pattern>/Controler/Pesquisar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ListarUsuariosServlet</servlet-name>
         <url-pattern>/ListarUsuariosServlet</url-pattern>
     </servlet-mapping>
@@ -109,16 +107,23 @@
         <url-pattern>/Empresa</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EmpresaStatus</servlet-name>
-        <url-pattern>/EmpresaStatus</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoginStatus</servlet-name>
         <url-pattern>/LoginStatus</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Empressa_Vagas</servlet-name>
+        <url-pattern>/Empressa_Vagas</url-pattern>
+    </servlet-mapping>
+    <!-- CONFIGURAÇÃO DE SESSÃO -->
+    <servlet-mapping>
+        <servlet-name>Empresa_Acoes</servlet-name>
+        <url-pattern>/Empresa_Acoes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Candidatura_Status</servlet-name>
+        <url-pattern>/Candidatura_Status</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 </web-app>

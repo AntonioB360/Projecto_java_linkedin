@@ -10,6 +10,7 @@ import Model.Empresa;
 import Model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -77,11 +78,12 @@ public class LoginStatus extends HttpServlet {
             HttpSession session = request.getSession();
 
             if ("usuario".equals(tipo) ) {
-                Usuario usuario = user.validar(email, senha);
+                LoginDTO usuario = user.validar_credenciais(email, senha);
 
                 if (usuario != null) {
+                    UsuarioDTO dados=user.dados_usuarios(email);
                     session.setAttribute("usuario", usuario);
-                    session.setAttribute("role", "usuario");
+                    session.setAttribute("dados", dados);
                     response.sendRedirect("Feed.jsp");
                 } else {
                     response.sendRedirect("login.jsp?erro=usuario");
@@ -100,14 +102,27 @@ public class LoginStatus extends HttpServlet {
                 }
 
             } else if ("adm".equals(tipo)) {
-                Usuario usuario = user.validar(email, senha);
+                LoginDTO usuario = user.validar_credenciais(email, senha);
                 if (usuario != null) {
                     session.setAttribute("usuario", usuario);
                     session.setAttribute("role", "usuario");
                     response.sendRedirect("DashbordAdm.jsp");
                 }
             } else {
-                response.sendRedirect("Loginadm.jsp?erro=usuario");
+                
+                out.println("<!DOCTYPE html>\n" +
+"<html lang=\"en\">\n" +
+"<head>\n" +
+"    <meta charset=\"UTF-8\">\n" +
+"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"    <title>Document</title>\n" +
+"</head>\n" +
+"<body>\n" +
+"    \n" +
+"   <b>erro</b>\n" +
+"\n" +
+"</body>\n" +
+"</html>");
             }
 
         } catch (SQLException ex) {

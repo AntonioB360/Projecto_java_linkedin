@@ -18,6 +18,8 @@ public class Postagens {
     private Usuario usuario;
     private String imagens;
     private Timestamp dataPostagem;
+    private int numero_curtidas;
+     private int numero_comentario;
 
 
     public Postagens(int id, int id_usuario, String conteudo,String imagens) {
@@ -78,7 +80,21 @@ public class Postagens {
         this.dataPostagem = dataPostagem;
     }
 
-  
-    
-    
+    public int getNumero_curtidas() {
+        return numero_curtidas;
+    }
+
+    public void setNumero_curtidas(int numero_curtidas) {
+        this.numero_curtidas = numero_curtidas;
+    }
+
+    public int getNumero_comentario() {
+        return numero_comentario;
+    }
+
+    public void setNumero_comentario(int numero_comentario) {
+        this.numero_comentario = numero_comentario;
+    }
+
+   
 }

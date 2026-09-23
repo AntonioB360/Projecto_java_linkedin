@@ -1,189 +1,361 @@
-/* Geral */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Roboto:wght@100&display=swap');
+/* Estilos Gerais */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
-    font-family: 'poppins', Helvetica;
-    color: #323232;
-    border: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-
-    background: url(../img/rede.jfif) center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
+    background-color: #f3f6f8;
+    color: #333;
+    line-height: 1.6;
     display: flex;
-    height: 100vh;
     justify-content: center;
-    margin-top: center;
     align-items: center;
-    padding: 10px;
-    
-
+    min-height: 100vh;
+    padding: 20px;
 }
 
-textarea:focus, input:focus {   /* Revove margem ao seleciona uma caixa input */
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    background-color: #0077b5;
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+.logo-link {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.logo-img {
+    width: 80px;
+    height: auto;
+}
+
+.welcome-text {
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.form-container {
+    padding: 30px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    color: #0077b5;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group {
+    flex: 1;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group.full-width {
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.input-group textarea {
+    min-height: 100px;
+    padding: 15px;
+    resize: vertical;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #0077b5;
+    box-shadow: 0 0 0 2px rgba(0, 119, 181, 0.2);
     outline: none;
 }
 
-a, label {
-    font-size: .8rem; /* 16 * .8 = X */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    color: #999;
+    font-size: 1rem;
 }
 
-a:hover {       /* Cor dos links ao passar o mause */
-    color: #08558b;
-}
-/* Logo */
-.logo {
-    display: flex;
-    justify-content: center;
-    height: 50px;
-}
-
-.container{
-    background-color: #ffffffc2;
-    max-width: 700px;
-    width: 100%;
-    border-radius: 12px;    /* Suavisa os cantos do card */
-    padding: 30px 30px;
-    text-align: left;
-    box-shadow: 2px 2px 1px 0px #00000050;  /* Cria uma sombra no card */
-}
-/* formatação do titulo cadastro */
-.container .title {
-    font-size: 1.5rem;
-    font-weight: 500;   /* espessura da fonte */
+.file-upload {
     position: relative;
 }
-/* traço em degrader abaixo do nome cadastro */
-.container .title::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background: linear-gradient(135deg, #000000, #1709aa);
-}
-/* Alinhas os inputs na vertical */
-.container form .user-details{
-    display: -webkit-flex;  
+
+.file-upload-label {
     display: flex;
-    flex-wrap: wrap; /* mantem os inputs dentro do card*/
-    justify-content: space-between;
-
-}
-
-/* coloca os inputs em duas colunas 
-form .user-details .input-box{
-    margin: 30px 0px 12px 0px;
-    width: calc(100% / 2 - 20px);
-}
-
-.user-details .input-box .details{
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-.user-details .input-box input{
-    height: 45px;
-    width: 100%;
-}
-
-*/
-
-
-form {
-    margin-top: 10px;
-    margin-bottom: 0px;
-}
-
-.input-box {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 48%;
-    min-width: 250px;
-    flex-wrap: wrap;
-}
-
-label, input {
-    display: flex;
-    text-align: left;
-}
-
-label {
-    font-weight: bold;
-}
-
-input {
-    background-color: #ffffff20; 
+    align-items: center;
+    justify-content: center;
+    padding: 12px 15px;
+    background-color: #f5f5f5;
+    border: 1px dashed #ccc;
     border-radius: 5px;
-    border-bottom: 2px solid #323232;
-    padding: .5rem;
-    font-size: .9rem;
-    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+    font-size: 0.9rem;
+    gap: 8px;
 }
 
-input:focus {
-    border-bottom: 2px solid #08558b;
+.file-upload-label:hover {
+    background-color: #e9e9e9;
+    border-color: #999;
 }
-.button {
+
+.file-upload input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.gender-selection {
+    margin: 20px 0;
+}
+
+.gender-selection h3 {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.gender-options {
     display: flex;
-    justify-content: center;
-    width: 50%;
-    text-align: center;
-
+    gap: 20px;
 }
 
-input[type="submit"] {
-    display:flex;
-    text-transform: uppercase;
-    font-weight: bold;
+.gender-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.gender-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-custom {
+    position: relative;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.gender-option input:checked ~ .radio-custom {
+    background-color: #0077b5;
+    border-color: #0077b5;
+}
+
+.radio-custom:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.gender-option input:checked ~ .radio-custom:after {
+    display: block;
+}
+
+.gender-label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.terms-agreement {
+    margin: 20px 0;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.terms-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.terms-checkbox input:checked ~ .checkmark {
+    background-color: #0077b5;
+    border-color: #0077b5;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.terms-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.terms-link {
+    color: #0077b5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+.form-actions {
+    margin-top: 10px;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px;
+    background-color: #0077b5;
+    color: white;
     border: none;
-    height: 40px;
-    width: 220px;
-    border-radius: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #006097;
+    transform: translateY(-2px);
+}
+
+.login-redirect {
+    text-align: center;
     margin-top: 20px;
-    color: #ffffff;
-    background: linear-gradient(135deg, #000000, #070669);
-    cursor: pointer;
-    text-align: center;
-    justify-content: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.login-link {
+    color: #0077b5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
     
+    .gender-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .header {
+        padding: 20px;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
 }
-
-input[type="submit"]:hover {
-    background: linear-gradient(-135deg, #000000, #3431e6);
-    transition: .5s;
-}
-input[type="radio"]{
-    text-align: left;
-    border: none;
-    width: 15px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-    margin-top: 2px;
-    cursor: pointer;
-}
-input[type="checkbox"]{
-    text-align: left;
-    border: none;
-    width: 15px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-    margin-top: 2px;
-    cursor: pointer;
-}
-

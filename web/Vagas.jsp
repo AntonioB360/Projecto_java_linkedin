@@ -21,6 +21,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Publicação de Vagas</title>
+  <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/Vag.css" />
 </head>
 <body>
@@ -87,6 +88,7 @@
           <button type="submit">Salvar Vaga</button>
         </div>
       </section>
+      <input type="hidden"  name="acao" value="cadastrar">
     </form>
   </main>
 

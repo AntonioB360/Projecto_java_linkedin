@@ -36,6 +36,7 @@
 <html>
     <head>
         <title>Usuários</title>
+        <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
         <style>
             body {
                 font-family: 'Roboto', sans-serif;
@@ -134,11 +135,7 @@
 
 
                 <!-- Botão para bloquear -->
-                <button type="button" onclick="toggleField('bloquear')">Bloquear</button>
-                <form action="Bloquear" method="post" id="bloquearField" class="hidden">
-                    <input type="text" name="id" placeholder="Digite o ID para bloquear">
-                    <button type="submit">Confirmar Bloqueio</button>
-                </form>
+              
 
                 <!-- Tabela de usuários -->
                 <table>
@@ -155,39 +152,38 @@
                     <%
                         for (Empresa ep : list) {
                     %>
-                    <tr>
-                        <td><%= ep.getId()%></td>
-                        <td><%= ep.getNome()%></td>
-                        <td><%= ep.getEmail()%></td>
-                        <td><%= ep.getSetor()%></td>
-                        <td><%= ep.getLocalizacao()%></td> 
-                        <td><%= ep.getStatus()%></td> 
-                        
+                   <tr>
+    <td><%= ep.getId()%></td>
+    <td><%= ep.getNome()%></td>
+    <td><%= ep.getEmail()%></td>
+    <td><%= ep.getSetor()%></td>
+    <td><%= ep.getLocalizacao()%></td> 
+    <td><%= ep.getStatus()%></td> 
 
+    <td>
+        <!-- Formulário de status -->
+        <form action="Empresa_Acoes" method="post">
+            <select name="Status">
+                <option value="bloqueado">Bloquear</option>
+                <option value="activo">Desbloquear</option>
+                <option value="nao verificado">Não verificado</option>
+            </select>
+            <input type="hidden" name="id" value="<%= ep.getId() %>">
+            <input type="hidden" name="acao" value="bloquear">
+            <button type="submit">Mudar Status</button>
+        </form>
+    </td>
 
+    <td>
+        <!-- Formulário de eliminar -->
+        <form action="Empresa_Acoes" method="post">
+            <input type="hidden" name="id" value="<%=ep.getId()%>">
+            <input type="hidden" name="acao" value="eliminar">
+            <button type="submit">Eliminar conta</button>
+        </form>
+    </td>
+</tr>
 
-                     <!-- Checkbox para controlar a visibilidade -->
-                        <input type="checkbox" id="toggleForm<%= ep.getId() %>">
-                        Satatus
-                        <!-- Formulário oculto inicialmente -->
-                        <form action="EmpresaStatus" method="post" class="hidden-form">
-                            <select name="novoStatus">
-                                <option value="bloqueado">Bloquear</option>
-                                <option value="activo">Desbloquear</option>
-                                <option value="nao verificado">Não verificado</option>
-                            </select>
-                            <button type="submit" class="block">Mudar Status</button>
-                            <input type="hidden" name="id" value="<%= ep.getId() %>">
-                            <input type="hidden" name="acao" value="bloquear">
-                        </form>
-
-                    <form action="EmpresaStatus" method="post" id="eliminarField" class="hidden">
-                        <td><button type="submit" class="block">Eliminar conta</button></td>
-                        <input type="hidden" id="id" name="id" value="<%=ep.getId()%>">
-                        <input type="hidden" id="id" name="acao" value="eliminar">
-                    </form>
-
-                    </tr>
                     <%
                         }
                     %>

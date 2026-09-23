@@ -27,6 +27,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Restringir acesso premiun</title>
+        <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
         
           <style>
         /* Estilos Gerais */
